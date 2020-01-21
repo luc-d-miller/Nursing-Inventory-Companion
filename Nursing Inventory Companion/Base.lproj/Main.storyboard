@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9aA-OI-VFa">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Nursing Inventory Companion-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Nursing_Inventory_Companion" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,10 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiI-JF-Cbd">
-                                <rect key="frame" x="112" y="109" width="151" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiI-JF-Cbd">
+                                <rect key="frame" x="112" y="94" width="151" height="112"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="0b0-Ek-Uaw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Scanner">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -27,134 +29,120 @@
                                     <segue destination="ILy-rS-ogQ" kind="show" id="a7t-XA-f30"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnF-Xb-Oid">
-                                <rect key="frame" x="112" y="279" width="151" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Inventory"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnF-Xb-Oid">
+                                <rect key="frame" x="112" y="277" width="151" height="112"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="deC-eL-YbS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Inventory">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="MBS-E9-ytw" kind="show" id="lbQ-9p-gAD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azm-v1-mH2">
-                                <rect key="frame" x="112" y="446" width="151" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Classes"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azm-v1-mH2">
+                                <rect key="frame" x="112" y="460" width="151" height="114"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="114" id="hMg-10-NoY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Classes">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="ySS-0k-vw3" kind="show" id="J6M-7P-lv4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nursing Inventory Companion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mn3-gM-Al5">
-                                <rect key="frame" x="33" y="20" width="308" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="mn3-gM-Al5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="5fA-V3-zT1"/>
-                            <constraint firstItem="mn3-gM-Al5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="bHi-Wl-Yfm"/>
+                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="trailing" secondItem="azm-v1-mH2" secondAttribute="trailing" id="02G-tA-3hI"/>
+                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5VM-vI-9LG"/>
+                            <constraint firstItem="azm-v1-mH2" firstAttribute="top" secondItem="nnF-Xb-Oid" secondAttribute="bottom" constant="71" id="G1N-wF-I67"/>
+                            <constraint firstItem="nnF-Xb-Oid" firstAttribute="top" secondItem="NiI-JF-Cbd" secondAttribute="bottom" constant="71" id="KMD-u0-fEQ"/>
+                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="trailing" secondItem="nnF-Xb-Oid" secondAttribute="trailing" id="Sbc-0b-1rJ"/>
+                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="eZ9-OR-ygo"/>
+                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="leading" secondItem="azm-v1-mH2" secondAttribute="leading" id="n29-bi-mVu"/>
+                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="leading" secondItem="nnF-Xb-Oid" secondAttribute="leading" id="s00-z1-ADK"/>
+                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="zFB-vs-PMN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Nursing Inventory Companion" id="CHI-zF-zHf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-852" y="380.95952023988008"/>
+            <point key="canvasLocation" x="87.200000000000003" y="380.95952023988008"/>
         </scene>
-        <!--View Controller-->
+        <!--Scanner-->
         <scene sceneID="DyB-23-24C">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ILy-rS-ogQ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ig1-od-5Lz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-RF-UJ2">
-                                <rect key="frame" x="132" y="20" width="110" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="fSO-RF-UJ2" firstAttribute="top" secondItem="0za-eB-LZH" secondAttribute="top" id="660-gr-ZMM"/>
-                            <constraint firstItem="fSO-RF-UJ2" firstAttribute="leading" secondItem="0za-eB-LZH" secondAttribute="leading" constant="20" id="DsL-M3-fK6"/>
-                            <constraint firstItem="fSO-RF-UJ2" firstAttribute="leading" secondItem="0za-eB-LZH" secondAttribute="leading" constant="132" id="R6d-8G-bUC"/>
-                            <constraint firstItem="0za-eB-LZH" firstAttribute="trailing" secondItem="fSO-RF-UJ2" secondAttribute="trailing" constant="133" id="Veb-PP-Fmv"/>
-                            <constraint firstItem="fSO-RF-UJ2" firstAttribute="top" secondItem="0za-eB-LZH" secondAttribute="top" constant="20" id="jse-bz-xjE"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0za-eB-LZH"/>
                     </view>
-                    <navigationItem key="navigationItem" id="k63-zL-662"/>
+                    <navigationItem key="navigationItem" title="Scanner" id="k63-zL-662"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0O-ps-Wcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1095.2" y="-362.96851574212894"/>
         </scene>
-        <!--View Controller-->
+        <!--Inventory-->
         <scene sceneID="rvK-dy-LJt">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="MBS-E9-ytw" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CsY-eS-QMp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inventory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGM-Ai-yfL">
-                                <rect key="frame" x="129" y="20" width="116" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="vGM-Ai-yfL" firstAttribute="leading" secondItem="DPB-V1-AdH" secondAttribute="leading" constant="20" id="Ei2-hV-6rK"/>
-                            <constraint firstItem="vGM-Ai-yfL" firstAttribute="leading" secondItem="DPB-V1-AdH" secondAttribute="leading" constant="129" id="Ihc-lB-qqI"/>
-                            <constraint firstItem="DPB-V1-AdH" firstAttribute="trailing" secondItem="vGM-Ai-yfL" secondAttribute="trailing" constant="130" id="VuY-dl-LFL"/>
-                            <constraint firstItem="vGM-Ai-yfL" firstAttribute="top" secondItem="DPB-V1-AdH" secondAttribute="top" constant="20" id="lgG-Fa-VCU"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DPB-V1-AdH"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dEv-F1-Dqb"/>
+                    <navigationItem key="navigationItem" title="Inventory" id="dEv-F1-Dqb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRU-dJ-jJ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095.2" y="380.05997001499253"/>
+            <point key="canvasLocation" x="2034.4000000000001" y="380.05997001499253"/>
         </scene>
-        <!--View Controller-->
+        <!--Classes-->
         <scene sceneID="bFE-Ma-qCT">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ySS-0k-vw3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7XE-qA-U67">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMk-eK-bgJ">
-                                <rect key="frame" x="140" y="20" width="95" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="WMk-eK-bgJ" firstAttribute="top" secondItem="LGg-c9-ul6" secondAttribute="top" constant="20" id="3oh-ME-4ZH"/>
-                            <constraint firstItem="LGg-c9-ul6" firstAttribute="trailing" secondItem="WMk-eK-bgJ" secondAttribute="trailing" constant="140" id="AiI-Uk-N6B"/>
-                            <constraint firstItem="WMk-eK-bgJ" firstAttribute="leading" secondItem="LGg-c9-ul6" secondAttribute="leading" constant="20" id="RAA-6z-8sF"/>
-                            <constraint firstItem="WMk-eK-bgJ" firstAttribute="leading" secondItem="LGg-c9-ul6" secondAttribute="leading" constant="140" id="fOa-Xq-KB4"/>
-                            <constraint firstItem="WMk-eK-bgJ" firstAttribute="top" secondItem="LGg-c9-ul6" secondAttribute="top" id="s73-zL-E63"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LGg-c9-ul6"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zvs-K1-e8b"/>
+                    <navigationItem key="navigationItem" title="Classes" id="zvs-K1-e8b"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTd-OY-xbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1095.2" y="1121.2893553223389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OuK-4f-SDi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9aA-OI-VFa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uLX-K4-gLY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0AK-hi-rlX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqb-He-don" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-852" y="380.95952023988008"/>
         </scene>
     </scenes>
 </document>
