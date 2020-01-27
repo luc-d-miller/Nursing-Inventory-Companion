@@ -15,60 +15,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiI-JF-Cbd">
-                                <rect key="frame" x="112" y="94" width="151" height="112"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="0b0-Ek-Uaw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Scanner">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ILy-rS-ogQ" kind="show" id="a7t-XA-f30"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnF-Xb-Oid">
-                                <rect key="frame" x="112" y="277" width="151" height="112"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="deC-eL-YbS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Inventory">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="MBS-E9-ytw" kind="show" id="lbQ-9p-gAD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azm-v1-mH2">
-                                <rect key="frame" x="112" y="460" width="151" height="114"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="114" id="hMg-10-NoY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Classes">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ySS-0k-vw3" kind="show" id="J6M-7P-lv4"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="TAO-qB-dYJ">
+                                <rect key="frame" x="112" y="114" width="151" height="480"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiI-JF-Cbd">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="112"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="112" id="iGn-Kd-qXs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Scanner">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ILy-rS-ogQ" kind="show" id="a7t-XA-f30"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnF-Xb-Oid">
+                                        <rect key="frame" x="0.0" y="183" width="151" height="112"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="112" id="cjC-RW-atT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Inventory">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="MBS-E9-ytw" kind="show" id="lbQ-9p-gAD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azm-v1-mH2">
+                                        <rect key="frame" x="0.0" y="366" width="151" height="114"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Classes">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ySS-0k-vw3" kind="show" id="J6M-7P-lv4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="trailing" secondItem="azm-v1-mH2" secondAttribute="trailing" id="02G-tA-3hI"/>
-                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5VM-vI-9LG"/>
-                            <constraint firstItem="azm-v1-mH2" firstAttribute="top" secondItem="nnF-Xb-Oid" secondAttribute="bottom" constant="71" id="G1N-wF-I67"/>
-                            <constraint firstItem="nnF-Xb-Oid" firstAttribute="top" secondItem="NiI-JF-Cbd" secondAttribute="bottom" constant="71" id="KMD-u0-fEQ"/>
-                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="trailing" secondItem="nnF-Xb-Oid" secondAttribute="trailing" id="Sbc-0b-1rJ"/>
-                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="eZ9-OR-ygo"/>
-                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="leading" secondItem="azm-v1-mH2" secondAttribute="leading" id="n29-bi-mVu"/>
-                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="leading" secondItem="nnF-Xb-Oid" secondAttribute="leading" id="s00-z1-ADK"/>
-                            <constraint firstItem="NiI-JF-Cbd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="zFB-vs-PMN"/>
+                            <constraint firstItem="TAO-qB-dYJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="IvV-qe-Esy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TAO-qB-dYJ" secondAttribute="bottom" constant="73" id="Sqw-nn-Sia"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TAO-qB-dYJ" secondAttribute="trailing" constant="112" id="Srr-Yl-yrT"/>
+                            <constraint firstItem="TAO-qB-dYJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="m4U-Oz-orf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
