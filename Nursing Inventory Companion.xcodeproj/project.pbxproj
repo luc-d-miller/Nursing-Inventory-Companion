@@ -13,8 +13,9 @@
 		2D0B7D1723D77DFA00872131 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B7D1523D77DFA00872131 /* Main.storyboard */; };
 		2D0B7D1923D77DFB00872131 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B7D1823D77DFB00872131 /* Assets.xcassets */; };
 		2D0B7D1C23D77DFB00872131 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B7D1A23D77DFB00872131 /* LaunchScreen.storyboard */; };
-		2D0B7D2423D78EA500872131 /* icons8-git-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B7D2323D78EA400872131 /* icons8-git-50.png */; };
-		2DF6DE2723DA38A400A80A8C /* Benedictine College nursing dept..jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DF6DE2623DA38A400A80A8C /* Benedictine College nursing dept..jpg */; };
+		2DB572B823E664AC009FE19C /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB572B723E664AC009FE19C /* ItemTableViewController.swift */; };
+		2DB572BA23E66AFC009FE19C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB572B923E66AFC009FE19C /* ItemDetailViewController.swift */; };
+		2DEB7FAE23E3DA720043F05B /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB7FAD23E3DA720043F05B /* ItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		2D0B7D1823D77DFB00872131 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D0B7D1B23D77DFB00872131 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D0B7D1D23D77DFB00872131 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D0B7D2323D78EA400872131 /* icons8-git-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-git-50.png"; path = "../../../../../Downloads/icons8-git-50.png"; sourceTree = "<group>"; };
-		2DF6DE2623DA38A400A80A8C /* Benedictine College nursing dept..jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Benedictine College nursing dept..jpg"; path = "../../../../../Downloads/Benedictine College nursing dept..jpg"; sourceTree = "<group>"; };
+		2DB572B723E664AC009FE19C /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		2DB572B923E66AFC009FE19C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		2DEB7FAD23E3DA720043F05B /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +62,16 @@
 		2D0B7D0E23D77DFA00872131 /* Nursing Inventory Companion */ = {
 			isa = PBXGroup;
 			children = (
-				2DF6DE2623DA38A400A80A8C /* Benedictine College nursing dept..jpg */,
 				2D0B7D0F23D77DFA00872131 /* AppDelegate.swift */,
 				2D0B7D1123D77DFA00872131 /* SceneDelegate.swift */,
 				2D0B7D1323D77DFA00872131 /* ViewController.swift */,
+				2DEB7FAD23E3DA720043F05B /* ItemTableViewCell.swift */,
 				2D0B7D1523D77DFA00872131 /* Main.storyboard */,
+				2DB572B723E664AC009FE19C /* ItemTableViewController.swift */,
+				2DB572B923E66AFC009FE19C /* ItemDetailViewController.swift */,
 				2D0B7D1823D77DFB00872131 /* Assets.xcassets */,
 				2D0B7D1A23D77DFB00872131 /* LaunchScreen.storyboard */,
 				2D0B7D1D23D77DFB00872131 /* Info.plist */,
-				2D0B7D2323D78EA400872131 /* icons8-git-50.png */,
 			);
 			path = "Nursing Inventory Companion";
 			sourceTree = "<group>";
@@ -132,10 +135,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D0B7D1C23D77DFB00872131 /* LaunchScreen.storyboard in Resources */,
-				2DF6DE2723DA38A400A80A8C /* Benedictine College nursing dept..jpg in Resources */,
 				2D0B7D1923D77DFB00872131 /* Assets.xcassets in Resources */,
 				2D0B7D1723D77DFA00872131 /* Main.storyboard in Resources */,
-				2D0B7D2423D78EA500872131 /* icons8-git-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DB572B823E664AC009FE19C /* ItemTableViewController.swift in Sources */,
+				2DEB7FAE23E3DA720043F05B /* ItemTableViewCell.swift in Sources */,
+				2DB572BA23E66AFC009FE19C /* ItemDetailViewController.swift in Sources */,
 				2D0B7D1423D77DFA00872131 /* ViewController.swift in Sources */,
 				2D0B7D1023D77DFA00872131 /* AppDelegate.swift in Sources */,
 				2D0B7D1223D77DFA00872131 /* SceneDelegate.swift in Sources */,
