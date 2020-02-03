@@ -16,14 +16,15 @@ class ItemListModel: NSObject, URLSessionDelegate {
     //this makes all other users of this model have to follow the same protocol.
     weak var delegate: ItemListModelProtocol!
     
-    //What we're actually storing the JSON data in.
+    //What we're actually storing the JSON data in for now.
     var data = Data()
     
     //Right now, service.php just requests a SELECT statement. That'll be changed to a few options.
+    //This URL will be replaced by the formal database once we have it running. 
     let urlPath: String = "192.168.56.101/CSCI3100/service.php"
     
     //This should download the results of the hardcoded SELECT statement. Right now it does not. >_>
-    //It looks like the sample I've been following was made for a version of Xcode that liked JSON and this one doesn't so yay. 
+    //It looks like the sample I've been following was made for a version of Xcode that liked JSON and this one doesn't so yay.
     func downloadItems () {
         let url: URL = URL(string: urlPath)!
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
