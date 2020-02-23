@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 protocol ItemListModelProtocol: class {
     func itemsDownloaded(items: NSArray)
@@ -23,8 +24,7 @@ class ItemListModel: NSObject, URLSessionDelegate {
     //This URL will be replaced by the formal database once we have it running. 
     let urlPath: String = "192.168.56.101/CSCI3100/service.php"
     
-    //This should download the results of the hardcoded SELECT statement. Right now it does not. >_>
-    //It looks like the sample I've been following was made for a version of Xcode that liked JSON and this one doesn't so yay.
+    //This should download the results of the hardcoded SELECT statement and store the variables with parseJSON().
     func downloadItems () {
         let url: URL = URL(string: urlPath)!
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
@@ -33,11 +33,19 @@ class ItemListModel: NSObject, URLSessionDelegate {
                 if error != nil {
                     print("Failed to download data")
                 }else {
+                    //print that the data has been downloaded, parse it into json, and print it to screen
                     print("Data downloaded")
+                    print(data!)
+//                    let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+//                    print(json)
                     self.parseJSON(data!)
                 }
             }
-            task.resume()
-        }
+        task.resume()
+    }
+    
+    //sets up a dictionary of 
+    func parseJSON(_ data: Data) {
+        
     }
 }

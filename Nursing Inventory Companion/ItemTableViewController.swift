@@ -9,15 +9,20 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
-    private var items = [("Hammer", 1, 10), ("Bananas", 2, 20), ("Isopropyl Alcohol", 3, 1)]
+    private var items = [ItemModel]()
+    var semaphore = DispatchSemaphore(value: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
+//        items = downloadItems()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let output = downloadItems()
+        semaphore.wait()
+        self.items = output
     }
 
     // MARK: - Table view data source
@@ -35,11 +40,10 @@ class ItemTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.REUSE_ID, for: indexPath) as! ItemTableViewCell
-
         // Configure the cell...
-        cell.NameLabel.text = items[indexPath.row].0
-        cell.IDLabel.text = String(items[indexPath.row].1)
-        cell.CountLabel.text = String(items[indexPath.row].2)
+        cell.NameLabel.text = items[indexPath.row].name!
+        cell.IDLabel.text = String(items[indexPath.row].id!)
+        cell.CountLabel.text = String(items[indexPath.row].quantity!)
         return cell
     }
 
@@ -87,12 +91,85 @@ class ItemTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? ItemDetailViewController {
+            //does things
             if let cell = sender as? ItemTableViewCell {
                 destination.title = cell.NameLabel.text ?? "None found"
+                
+                //passes id and quantity values into ItemDetailViewController's labelString variable.
                 destination.labelString = "ID: \(cell.IDLabel.text ?? "-0"); Quantity: \(cell.CountLabel.text ?? "-1")"
             }
         }
     }
 
 
+//What we're actually storing the JSON data in for now.
+    var data = Data()
+    
+    //ItemModel array to access in the ItemTableViewController
+    var downloadedItems = [ItemModel]()
+    
+    //Right now, service.php just requests a SELECT statement. That'll be changed to a few options.
+    //This URL will be replaced by the formal database once we have it running.
+    let urlPath = "http://192.168.56.101/CSCI3100/service.php"
+    
+    //This should download the results of the hardcoded SELECT statement and store the variables with parseJSON().
+    func downloadItems() -> [ItemModel] {
+        
+        let url: URL = URL(string: urlPath)!
+        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
+        print("Using URL \(url)")
+        
+        //sample item
+        let item = ItemModel(Id: 1, Name: "Nice Item", Quantity: 69)
+        self.downloadedItems.append(item)
+        let semaphore2 = DispatchSemaphore(value: 0)
+//        let dq = DispatchQueue(label: "getStuffs")
+//        dq.async {
+//
+//        }
+        let task = defaultSession.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print("Failed to download data \(error)")
+            } else {
+                //print that the data has been downloaded, parse it into json, and print it to screen
+                print("Data downloaded")
+                print(data!)
+                    
+                //get the JSON from the service
+                let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+                    
+                //get everything from the json as an array
+                if let array = json as? [Any] {
+                    
+                    //append each item in the array into the item list
+                    for object in array {
+                            
+                        if let dictionary = object as? [String: Any] {
+                            let id = Int(dictionary["itemID"] as! String)
+                            let name = dictionary["itemName"] as! String
+                            let quantity = Int(dictionary["quantity"] as! String)
+                            let item = ItemModel(Id: id!, Name: name, Quantity: quantity!)
+                            self.downloadedItems.append(item)
+                                
+                        } else {
+                            
+                            print("Problem with dictionary")
+                            
+                        }
+                    }
+//                        self.items = self.downloadedItems //an attempt is being made at keeping this array fuckery after the task ends
+                } else {
+                    print("The array messed up")
+                }
+                    
+            }
+            semaphore2.signal()
+        }
+        task.resume()
+        semaphore2.wait()
+        semaphore.signal()
+        return downloadedItems
+    }
+
+    
 }

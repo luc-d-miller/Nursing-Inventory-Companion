@@ -13,17 +13,19 @@ class ItemModel: NSObject {
     var name: String?
     var quantity: Int?
     
-    override init() {
-        
+    init(Id: Int, Name: String, Quantity: Int) {
+        id = Id
+        name = Name
+        quantity = Quantity
     }
     
-    init(id: Int, name: String, quantity: Int) {
-        self.id = id
-        self.name = name
-        self.quantity = quantity
+    init?(json: [String: Any]) {
+        id = json["itemID"] as? Int
+        name = json["itemName"] as? String
+        quantity = json["quantity"] as? Int
     }
     
     override var description: String {
-        return "ID: \(id) Name: \(name) Quantity: \(quantity)"
+        return "ID: \(id!) Name: \(name!) Quantity: \(quantity!)"
     }
 }
