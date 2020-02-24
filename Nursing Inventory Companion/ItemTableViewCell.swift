@@ -12,8 +12,8 @@ class ItemTableViewCell: UITableViewCell {
     
     static var REUSE_ID = "ITEM_CELL"
     @IBOutlet weak var NameLabel: UILabel!
-    @IBOutlet weak var IDLabel: UILabel!
     @IBOutlet weak var CountLabel: UILabel!
+    weak var idLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

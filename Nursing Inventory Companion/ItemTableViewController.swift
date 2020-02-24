@@ -41,8 +41,8 @@ class ItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.REUSE_ID, for: indexPath) as! ItemTableViewCell
         // Configure the cell...
+        
         cell.NameLabel.text = items[indexPath.row].name!
-        cell.IDLabel.text = String(items[indexPath.row].id!)
         cell.CountLabel.text = String(items[indexPath.row].quantity!)
         return cell
     }
@@ -93,15 +93,19 @@ class ItemTableViewController: UITableViewController {
         if let destination = segue.destination as? ItemDetailViewController {
             //does things
             if let cell = sender as? ItemTableViewCell {
+                //rewrite this into selecting the ItemModel from the array
                 destination.title = cell.NameLabel.text ?? "None found"
                 
-                //passes id and quantity values into ItemDetailViewController's labelString variable.
-                destination.labelString = "ID: \(cell.IDLabel.text ?? "-0"); Quantity: \(cell.CountLabel.text ?? "-1")"
+                //passes quantity values into ItemDetailViewController's labelString variable.
+                
+                destination.labelString = "Quantity: \(cell.CountLabel.text ?? "-1")"
             }
         }
     }
 
 
+    
+    
 //What we're actually storing the JSON data in for now.
     var data = Data()
     
@@ -119,17 +123,10 @@ class ItemTableViewController: UITableViewController {
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         print("Using URL \(url)")
         
-        //sample item
-        let item = ItemModel(Id: 1, Name: "Nice Item", Quantity: 69)
-        self.downloadedItems.append(item)
         let semaphore2 = DispatchSemaphore(value: 0)
-//        let dq = DispatchQueue(label: "getStuffs")
-//        dq.async {
-//
-//        }
         let task = defaultSession.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                print("Failed to download data \(error)")
+                print("Failed to download data \(error!)")
             } else {
                 //print that the data has been downloaded, parse it into json, and print it to screen
                 print("Data downloaded")
@@ -148,7 +145,13 @@ class ItemTableViewController: UITableViewController {
                             let id = Int(dictionary["itemID"] as! String)
                             let name = dictionary["itemName"] as! String
                             let quantity = Int(dictionary["quantity"] as! String)
-                            let item = ItemModel(Id: id!, Name: name, Quantity: quantity!)
+                            let company = dictionary["company"] as! String
+                            let price = Int(dictionary["price"] as! String)
+                            let boxQuantity = Int(dictionary["boxQuantity"] as! String)
+                            let shelfLocation = Character(dictionary["shelfLocation"] as! String)
+                            let minSupplies = Int(dictionary["minSupplies"] as! String)
+                            let maxSupplies = Int(dictionary["maxSupplies"] as! String)
+                            let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!, MaxSupplies: maxSupplies!)
                             self.downloadedItems.append(item)
                                 
                         } else {
@@ -157,7 +160,6 @@ class ItemTableViewController: UITableViewController {
                             
                         }
                     }
-//                        self.items = self.downloadedItems //an attempt is being made at keeping this array fuckery after the task ends
                 } else {
                     print("The array messed up")
                 }

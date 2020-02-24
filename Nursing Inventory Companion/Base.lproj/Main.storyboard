@@ -7,6 +7,45 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Scanner View Controller-->
+        <scene sceneID="nUu-ta-QbM">
+            <objects>
+                <viewController id="AJN-KT-sxh" customClass="ScannerViewController" customModule="Nursing_Inventory_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Ej-Mz-b1K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m9g-jX-4Ns">
+                                <rect key="frame" x="67" y="519" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYN-UB-ldp">
+                                        <rect key="frame" x="99" y="54" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7ra-Ov-qbe" firstAttribute="bottom" secondItem="m9g-jX-4Ns" secondAttribute="bottom" constant="20" id="Cmn-pM-7Bl"/>
+                            <constraint firstItem="m9g-jX-4Ns" firstAttribute="leading" secondItem="7ra-Ov-qbe" secondAttribute="leading" constant="67" id="Fn9-wf-A8m"/>
+                            <constraint firstItem="7ra-Ov-qbe" firstAttribute="trailing" secondItem="m9g-jX-4Ns" secondAttribute="trailing" constant="68" id="jLx-Mm-HnV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7ra-Ov-qbe"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblOutlet" destination="qYN-UB-ldp" id="F0a-CA-sZf"/>
+                        <outlet property="previewView" destination="m9g-jX-4Ns" id="cv7-qp-miH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQc-0h-7qI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="768" y="-389"/>
+        </scene>
         <!--Nursing Inventory Companion-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -28,9 +67,6 @@
                                         <state key="normal" title="Scanner">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="ILy-rS-ogQ" kind="show" id="a7t-XA-f30"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnF-Xb-Oid">
                                         <rect key="frame" x="0.0" y="183" width="151" height="112"/>
@@ -75,22 +111,6 @@
             </objects>
             <point key="canvasLocation" x="215" y="381"/>
         </scene>
-        <!--Scanner-->
-        <scene sceneID="DyB-23-24C">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ILy-rS-ogQ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ig1-od-5Lz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="0za-eB-LZH"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Scanner" id="k63-zL-662"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M0O-ps-Wcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1095.2" y="-362.96851574212894"/>
-        </scene>
         <!--Item Table View Controller-->
         <scene sceneID="Jf8-J2-qLB">
             <objects>
@@ -101,47 +121,34 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ITEM_CELL" id="Fiw-ai-Wy6" customClass="ItemTableViewCell" customModule="Nursing_Inventory_Companion" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fiw-ai-Wy6" id="hAM-Cs-tdl">
-                                    <rect key="frame" x="0.0" y="0.0" width="348" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="out-ig-kcb">
-                                            <rect key="frame" x="153" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLk-Kc-4En">
-                                            <rect key="frame" x="298" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="298" y="11" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yl3-Vr-Ufn">
-                                            <rect key="frame" x="16" y="11" width="110.5" height="21"/>
+                                            <rect key="frame" x="16" y="11" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Yl3-Vr-Ufn" secondAttribute="bottom" id="4Gc-xk-SPF"/>
-                                        <constraint firstItem="Yl3-Vr-Ufn" firstAttribute="top" secondItem="hAM-Cs-tdl" secondAttribute="topMargin" id="AyG-7E-hUt"/>
-                                        <constraint firstItem="wLk-Kc-4En" firstAttribute="top" secondItem="hAM-Cs-tdl" secondAttribute="topMargin" id="MrJ-UA-eN6"/>
-                                        <constraint firstItem="out-ig-kcb" firstAttribute="bottom" secondItem="hAM-Cs-tdl" secondAttribute="bottomMargin" id="Qaf-NI-Cx7"/>
-                                        <constraint firstItem="out-ig-kcb" firstAttribute="centerX" secondItem="hAM-Cs-tdl" secondAttribute="centerX" id="RNg-7K-9Yg"/>
-                                        <constraint firstItem="out-ig-kcb" firstAttribute="top" secondItem="hAM-Cs-tdl" secondAttribute="topMargin" id="am9-9K-be0"/>
-                                        <constraint firstItem="wLk-Kc-4En" firstAttribute="bottom" secondItem="hAM-Cs-tdl" secondAttribute="bottomMargin" id="gTr-v8-gN5"/>
-                                        <constraint firstItem="Yl3-Vr-Ufn" firstAttribute="width" secondItem="hAM-Cs-tdl" secondAttribute="width" multiplier="0.317333" id="gaP-4a-dTI"/>
-                                        <constraint firstItem="wLk-Kc-4En" firstAttribute="trailing" secondItem="hAM-Cs-tdl" secondAttribute="trailingMargin" id="iC6-dQ-CHW"/>
-                                        <constraint firstItem="Yl3-Vr-Ufn" firstAttribute="leading" secondItem="hAM-Cs-tdl" secondAttribute="leadingMargin" id="yQd-Ao-GZ2"/>
+                                        <constraint firstItem="Yl3-Vr-Ufn" firstAttribute="top" secondItem="hAM-Cs-tdl" secondAttribute="top" constant="11" id="2wH-cF-LKg"/>
+                                        <constraint firstItem="wLk-Kc-4En" firstAttribute="trailing" secondItem="hAM-Cs-tdl" secondAttribute="trailingMargin" id="MLI-Qd-3S8"/>
+                                        <constraint firstItem="wLk-Kc-4En" firstAttribute="top" secondItem="hAM-Cs-tdl" secondAttribute="topMargin" id="dQR-D7-o4W"/>
+                                        <constraint firstItem="Yl3-Vr-Ufn" firstAttribute="leading" secondItem="hAM-Cs-tdl" secondAttribute="leading" constant="16" id="gGJ-F9-6pT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="CountLabel" destination="wLk-Kc-4En" id="Znv-Jb-BC0"/>
-                                    <outlet property="IDLabel" destination="out-ig-kcb" id="VWS-Mn-ZWf"/>
                                     <outlet property="NameLabel" destination="Yl3-Vr-Ufn" id="12b-jB-w2t"/>
                                     <segue destination="H2z-wg-hai" kind="show" id="Zii-QK-LyS"/>
                                 </connections>
@@ -156,7 +163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FtA-Po-g5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004" y="381"/>
+            <point key="canvasLocation" x="2004" y="380.95952023988008"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="ZEn-z5-bXc">
