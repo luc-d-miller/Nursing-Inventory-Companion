@@ -37,14 +37,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ra-Ov-qbe"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ofx-1q-mfz"/>
                     <connections>
                         <outlet property="lblOutlet" destination="qYN-UB-ldp" id="F0a-CA-sZf"/>
+                        <outlet property="lblOutput" destination="qYN-UB-ldp" id="8lh-gr-iFb"/>
                         <outlet property="previewView" destination="m9g-jX-4Ns" id="cv7-qp-miH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQc-0h-7qI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="-389"/>
+            <point key="canvasLocation" x="1094" y="-537"/>
         </scene>
         <!--Nursing Inventory Companion-->
         <scene sceneID="tne-QT-ifu">
@@ -67,6 +69,9 @@
                                         <state key="normal" title="Scanner">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="AJN-KT-sxh" kind="show" id="meq-ef-Arm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnF-Xb-Oid">
                                         <rect key="frame" x="0.0" y="183" width="151" height="112"/>
