@@ -15,10 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m9g-jX-4Ns">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXn-4O-lHg">
                                 <rect key="frame" x="67" y="519" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYN-UB-ldp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHU-jQ-xmv">
                                         <rect key="frame" x="99" y="54" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -30,18 +31,12 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="7ra-Ov-qbe" firstAttribute="bottom" secondItem="m9g-jX-4Ns" secondAttribute="bottom" constant="20" id="Cmn-pM-7Bl"/>
-                            <constraint firstItem="m9g-jX-4Ns" firstAttribute="leading" secondItem="7ra-Ov-qbe" secondAttribute="leading" constant="67" id="Fn9-wf-A8m"/>
-                            <constraint firstItem="7ra-Ov-qbe" firstAttribute="trailing" secondItem="m9g-jX-4Ns" secondAttribute="trailing" constant="68" id="jLx-Mm-HnV"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7ra-Ov-qbe"/>
                     </view>
                     <navigationItem key="navigationItem" id="ofx-1q-mfz"/>
                     <connections>
-                        <outlet property="lblOutlet" destination="qYN-UB-ldp" id="F0a-CA-sZf"/>
-                        <outlet property="lblOutput" destination="qYN-UB-ldp" id="8lh-gr-iFb"/>
-                        <outlet property="previewView" destination="m9g-jX-4Ns" id="cv7-qp-miH"/>
+                        <outlet property="lblOutput" destination="SHU-jQ-xmv" id="V7z-Aw-qwI"/>
+                        <outlet property="previewView" destination="XXn-4O-lHg" id="NVu-jI-MKZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQc-0h-7qI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -15,7 +15,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var lblOutput: UILabel!
     
-    
     var imageOrientation: AVCaptureVideoOrientation?
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
