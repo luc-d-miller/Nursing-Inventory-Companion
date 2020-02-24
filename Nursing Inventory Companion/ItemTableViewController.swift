@@ -41,7 +41,7 @@ class ItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.REUSE_ID, for: indexPath) as! ItemTableViewCell
         // Configure the cell...
-        
+        cell.id = items[indexPath.row].id!
         cell.NameLabel.text = items[indexPath.row].name!
         cell.CountLabel.text = String(items[indexPath.row].quantity!)
         return cell
