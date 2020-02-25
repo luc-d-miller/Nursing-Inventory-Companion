@@ -11,7 +11,6 @@ import AVFoundation
 
 class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCapturePhotoCaptureDelegate, AVCaptureMetadataOutputObjectsDelegate {
     
-    
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var lblOutput: UILabel!
     

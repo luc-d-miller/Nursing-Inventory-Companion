@@ -13,8 +13,6 @@ class ItemTableViewController: UITableViewController {
     var semaphore = DispatchSemaphore(value: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
-//        items = downloadItems()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -95,10 +93,22 @@ class ItemTableViewController: UITableViewController {
             if let cell = sender as? ItemTableViewCell {
                 //rewrite this into selecting the ItemModel from the array
                 destination.title = cell.NameLabel.text ?? "None found"
+                var i = 0
+                for item in items {
+                    if (item.id! == cell.id!) {
+                        i = item.id! - 1
+                        break
+                    }
+                }
                 
-                //passes quantity values into ItemDetailViewController's labelString variable.
-                
-                destination.labelString = "Quantity: \(cell.CountLabel.text ?? "-1")"
+                //passes values into ItemDetailViewController's string variables.
+                destination.quantityString = "\(items[i].quantity!)"
+                destination.companyString = "\(items[i].company!)"
+                destination.priceString = "\(items[i].price!)"
+                destination.boxString = "\(items[i].boxQuantity!)"
+                destination.shelfString = "\(items[i].shelfLocation!)"
+                destination.minString = "\(items[i].minSupplies!)"
+                destination.maxString = "\(items[i].maxSupplies!)"
             }
         }
     }
