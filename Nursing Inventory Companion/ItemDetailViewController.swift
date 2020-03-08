@@ -16,26 +16,23 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var boxLabel: UILabel!
     @IBOutlet weak var shelfLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
-    @IBOutlet weak var maxLabel: UILabel!
     var quantityString = ""
     var companyString = ""
     var priceString = ""
     var boxString = ""
     var shelfString = ""
     var minString = ""
-    var maxString = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         quantityLabel.text = quantityString
         companyLabel.text = companyString
         priceLabel.text = priceString
         boxLabel.text = boxString
         shelfLabel.text = shelfString
         minLabel.text = minString
-        maxLabel.text = maxString
-        // Do any additional setup after loading the view.
     }
     
 

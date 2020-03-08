@@ -173,12 +173,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount per Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emu-fn-djQ">
-                                <rect key="frame" x="16" y="218" width="128" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lblQuantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmN-0k-gPv">
                                 <rect key="frame" x="276" y="44" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -215,19 +209,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lblMax" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAT-gt-Fpn">
-                                <rect key="frame" x="309" y="218" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="fmN-0k-gPv" secondAttribute="trailing" constant="16" id="1Mc-Pr-wts"/>
                             <constraint firstItem="WRd-1O-GQ9" firstAttribute="top" secondItem="X8n-m4-dlv" secondAttribute="bottom" constant="8" id="5Rd-YS-UjK"/>
                             <constraint firstItem="9aa-tL-W2A" firstAttribute="top" secondItem="rbu-Cx-33j" secondAttribute="bottom" constant="8" id="5tG-Xx-oSy"/>
-                            <constraint firstItem="IAT-gt-Fpn" firstAttribute="top" secondItem="WRd-1O-GQ9" secondAttribute="bottom" constant="8" id="EEf-g6-EqM"/>
                             <constraint firstItem="KaJ-CI-AlV" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="GMk-xp-gxJ"/>
                             <constraint firstItem="KaJ-CI-AlV" firstAttribute="top" secondItem="zAB-2u-t9o" secondAttribute="bottom" constant="8" id="Hgz-m8-B5a"/>
                             <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="rbu-Cx-33j" secondAttribute="trailing" constant="16" id="MB9-ld-baA"/>
@@ -246,12 +233,9 @@
                             <constraint firstItem="w6C-Ep-zbc" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="lUX-9C-Vv5"/>
                             <constraint firstItem="zAB-2u-t9o" firstAttribute="top" secondItem="XXr-Ik-T1q" secondAttribute="top" id="pBM-MN-ZS9"/>
                             <constraint firstItem="rbu-Cx-33j" firstAttribute="top" secondItem="z5f-yq-as9" secondAttribute="bottom" constant="8" id="pk0-3Y-kui"/>
-                            <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="IAT-gt-Fpn" secondAttribute="trailing" constant="16" id="pp8-nB-n8h"/>
                             <constraint firstItem="OqW-NM-y64" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="s4D-BI-6q8"/>
                             <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="X8n-m4-dlv" secondAttribute="trailing" constant="16" id="sje-fI-K7m"/>
                             <constraint firstItem="xbf-7n-qfR" firstAttribute="top" secondItem="OqW-NM-y64" secondAttribute="bottom" constant="8" id="tIn-fi-f51"/>
-                            <constraint firstItem="emu-fn-djQ" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="tg5-Pj-DYR"/>
-                            <constraint firstItem="emu-fn-djQ" firstAttribute="top" secondItem="spb-wg-0HI" secondAttribute="bottom" constant="8" id="xIV-3b-dSV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XXr-Ik-T1q"/>
                     </view>
@@ -259,7 +243,6 @@
                     <connections>
                         <outlet property="boxLabel" destination="9aa-tL-W2A" id="IQI-Yi-xtS"/>
                         <outlet property="companyLabel" destination="z5f-yq-as9" id="bGe-78-7jc"/>
-                        <outlet property="maxLabel" destination="IAT-gt-Fpn" id="R3N-zw-9DS"/>
                         <outlet property="minLabel" destination="WRd-1O-GQ9" id="Yxr-1D-gmh"/>
                         <outlet property="priceLabel" destination="rbu-Cx-33j" id="eVE-lb-SoA"/>
                         <outlet property="quantityLabel" destination="fmN-0k-gPv" id="H8B-3f-6a4"/>

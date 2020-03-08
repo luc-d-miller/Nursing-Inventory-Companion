@@ -17,9 +17,8 @@ class ItemModel: NSObject {
     var boxQuantity: Int?
     var shelfLocation: Character?
     var minSupplies: Int?
-    var maxSupplies: Int?
     
-    init(Id: Int, Name: String, Quantity: Int, Company: String, Price: Int, BoxQuantity: Int, ShelfLocation: Character, MinSupplies: Int, MaxSupplies: Int) {
+    init(Id: Int, Name: String, Quantity: Int, Company: String, Price: Int, BoxQuantity: Int, ShelfLocation: Character, MinSupplies: Int) {
         id = Id
         name = Name
         quantity = Quantity
@@ -28,7 +27,6 @@ class ItemModel: NSObject {
         boxQuantity = BoxQuantity
         shelfLocation = ShelfLocation
         minSupplies = MinSupplies
-        maxSupplies = MaxSupplies
     }
     
     override var description: String {

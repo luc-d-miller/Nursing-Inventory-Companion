@@ -108,7 +108,6 @@ class ItemTableViewController: UITableViewController {
                 destination.boxString = "\(items[i].boxQuantity!)"
                 destination.shelfString = "\(items[i].shelfLocation!)"
                 destination.minString = "\(items[i].minSupplies!)"
-                destination.maxString = "\(items[i].maxSupplies!)"
             }
         }
     }
@@ -160,8 +159,7 @@ class ItemTableViewController: UITableViewController {
                             let boxQuantity = Int(dictionary["boxQuantity"] as! String)
                             let shelfLocation = Character(dictionary["shelfLocation"] as! String)
                             let minSupplies = Int(dictionary["minSupplies"] as! String)
-                            let maxSupplies = Int(dictionary["maxSupplies"] as! String)
-                            let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!, MaxSupplies: maxSupplies!)
+                            let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!)
                             self.downloadedItems.append(item)
                                 
                         } else {
