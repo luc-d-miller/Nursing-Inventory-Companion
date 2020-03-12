@@ -16,12 +16,14 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var boxLabel: UILabel!
     @IBOutlet weak var shelfLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
+    @IBOutlet weak var quantityField: UITextField!
     var quantityString = ""
     var companyString = ""
     var priceString = ""
     var boxString = ""
     var shelfString = ""
     var minString = ""
+    var fieldString = ""
     
     
     override func viewDidLoad() {
@@ -33,17 +35,21 @@ class ItemDetailViewController: UIViewController {
         boxLabel.text = boxString
         shelfLabel.text = shelfString
         minLabel.text = minString
+        quantityField.placeholder = quantityString
     }
     
-
-    /*
+//    @IBSegueAction func editDetails(_ coder: NSCoder) -> EditDetailViewController? {
+//        return <#EditDetailViewController(coder: coder)#>
+//    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? EditDetailViewController {
+            destination.nameText = self.title!
+        }
     }
-    */
-
 }
