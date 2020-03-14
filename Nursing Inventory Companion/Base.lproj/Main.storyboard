@@ -248,7 +248,7 @@
                     <navigationItem key="navigationItem" id="P6e-0v-CjW">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="efB-1B-fee">
                             <connections>
-                                <segue destination="rKh-Xn-N1k" kind="showDetail" identifier="DetailSegue" destinationCreationSelector="editDetails:" id="KLt-to-7h6"/>
+                                <segue destination="fFx-R5-3WQ" kind="showDetail" id="Nus-hg-E73"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -267,31 +267,45 @@
             <point key="canvasLocation" x="2168.8000000000002" y="380.95952023988008"/>
         </scene>
         <!--Edit Detail View Controller-->
-        <scene sceneID="Qmf-fZ-Hvy">
+        <scene sceneID="ocj-7D-Rq7">
             <objects>
-                <viewController id="rKh-Xn-N1k" customClass="EditDetailViewController" customModule="Nursing_Inventory_Companion" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HlW-x5-qcU">
+                <viewController id="fFx-R5-3WQ" customClass="EditDetailViewController" customModule="Nursing_Inventory_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="las-Do-lfl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Muy-1x-f4A">
-                                <rect key="frame" x="16" y="20" width="343" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I got to the editor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-hw-HDf">
+                                <rect key="frame" x="110" y="269" width="155" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mhX-dw-d0B">
+                                <rect key="frame" x="16" y="20" width="343" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="updateName:" destination="fFx-R5-3WQ" eventType="editingDidEnd" id="hlJ-jn-yNA"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="7Rp-mj-lHb"/>
+                        <constraints>
+                            <constraint firstItem="mhX-dw-d0B" firstAttribute="leading" secondItem="dCi-A4-3zL" secondAttribute="leading" constant="16" id="0LA-FI-0sh"/>
+                            <constraint firstItem="dCi-A4-3zL" firstAttribute="trailing" secondItem="mhX-dw-d0B" secondAttribute="trailing" constant="16" id="j7q-XZ-cxx"/>
+                            <constraint firstItem="mhX-dw-d0B" firstAttribute="top" secondItem="dCi-A4-3zL" secondAttribute="top" constant="20" id="vhG-sn-tab"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dCi-A4-3zL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4O7-LS-Hcw"/>
+                    <navigationItem key="navigationItem" id="Cdo-PQ-f5I"/>
                     <connections>
-                        <outlet property="nameLabel" destination="Muy-1x-f4A" id="sve-kD-YAE"/>
+                        <outlet property="nameLabel" destination="mhX-dw-d0B" id="tgB-jz-Tz0"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hbL-Vr-AA0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0rB-Wt-p0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3061.5999999999999" y="380.95952023988008"/>
+            <point key="canvasLocation" x="3023.1999999999998" y="380.95952023988008"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="gd7-Rd-ePs">

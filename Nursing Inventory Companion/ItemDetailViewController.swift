@@ -24,6 +24,7 @@ class ItemDetailViewController: UIViewController {
     var shelfString = ""
     var minString = ""
     var fieldString = ""
+    var itemID = -1
     
     
     override func viewDidLoad() {
@@ -38,9 +39,9 @@ class ItemDetailViewController: UIViewController {
         quantityField.placeholder = quantityString
     }
     
-//    @IBSegueAction func editDetails(_ coder: NSCoder) -> EditDetailViewController? {
-//        return <#EditDetailViewController(coder: coder)#>
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     
     // MARK: - Navigation
 
@@ -50,6 +51,7 @@ class ItemDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? EditDetailViewController {
             destination.nameText = self.title!
+            destination.itemID = self.itemID
         }
     }
 }

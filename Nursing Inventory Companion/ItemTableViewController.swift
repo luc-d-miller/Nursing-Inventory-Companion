@@ -102,6 +102,7 @@ class ItemTableViewController: UITableViewController {
                 }
                 
                 //passes values into ItemDetailViewController's string variables.
+                destination.itemID = cell.id!
                 destination.quantityString = "\(items[i].quantity!)"
                 destination.companyString = "\(items[i].company!)"
                 destination.priceString = "\(items[i].price!)"
