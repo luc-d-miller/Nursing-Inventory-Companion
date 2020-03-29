@@ -13,14 +13,23 @@ class ItemTableViewController: UITableViewController {
     var semaphore = DispatchSemaphore(value: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        // Uncomment the following line to preserve selection between presentations
+//        // self.clearsSelectionOnViewWillAppear = false
+//
+//        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+//        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        let output = downloadItems()
+//        semaphore.wait()
+//        self.items = output
+////        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
         let output = downloadItems()
         semaphore.wait()
         self.items = output
+//        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -101,14 +110,8 @@ class ItemTableViewController: UITableViewController {
                     }
                 }
                 
-                //passes values into ItemDetailViewController's string variables.
+                //passes id into ItemDetailViewController
                 destination.itemID = cell.id!
-                destination.quantityString = "\(items[i].quantity!)"
-                destination.companyString = "\(items[i].company!)"
-                destination.priceString = "\(items[i].price!)"
-                destination.boxString = "\(items[i].boxQuantity!)"
-                destination.shelfString = "\(items[i].shelfLocation!)"
-                destination.minString = "\(items[i].minSupplies!)"
             }
         }
     }
