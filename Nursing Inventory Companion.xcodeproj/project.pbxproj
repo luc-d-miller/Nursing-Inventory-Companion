@@ -14,6 +14,7 @@
 		2D0B7D1923D77DFB00872131 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B7D1823D77DFB00872131 /* Assets.xcassets */; };
 		2D0B7D1C23D77DFB00872131 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B7D1A23D77DFB00872131 /* LaunchScreen.storyboard */; };
 		2D534A1223E87FF800721DD0 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D534A1123E87FF800721DD0 /* ItemModel.swift */; };
+		2D880B0F243BB1E8004A6367 /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D880B0E243BB1E8004A6367 /* AddNewItemViewController.swift */; };
 		2D9C867624042ADA0025357A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C867524042ADA0025357A /* ScannerViewController.swift */; };
 		2DA704EA2419BD8600C56DC6 /* EditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA704E92419BD8600C56DC6 /* EditDetailViewController.swift */; };
 		2DB572B823E664AC009FE19C /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB572B723E664AC009FE19C /* ItemTableViewController.swift */; };
@@ -32,6 +33,7 @@
 		2D0B7D1D23D77DFB00872131 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D534A1123E87FF800721DD0 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		2D7D942223EA079A00EA401C /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		2D880B0E243BB1E8004A6367 /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
 		2D9C867524042ADA0025357A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		2DA704E92419BD8600C56DC6 /* EditDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailViewController.swift; sourceTree = "<group>"; };
 		2DB572B723E664AC009FE19C /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				2DEB7FAD23E3DA720043F05B /* ItemTableViewCell.swift */,
 				2D0B7D1523D77DFA00872131 /* Main.storyboard */,
 				2DA704E92419BD8600C56DC6 /* EditDetailViewController.swift */,
+				2D880B0E243BB1E8004A6367 /* AddNewItemViewController.swift */,
 				2D7D942223EA079A00EA401C /* Testing.playground */,
 				2D534A1123E87FF800721DD0 /* ItemModel.swift */,
 				2DB572B723E664AC009FE19C /* ItemTableViewController.swift */,
@@ -166,6 +169,7 @@
 				2D0B7D1423D77DFA00872131 /* ViewController.swift in Sources */,
 				2D0B7D1023D77DFA00872131 /* AppDelegate.swift in Sources */,
 				2D534A1223E87FF800721DD0 /* ItemModel.swift in Sources */,
+				2D880B0F243BB1E8004A6367 /* AddNewItemViewController.swift in Sources */,
 				2D0B7D1223D77DFA00872131 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

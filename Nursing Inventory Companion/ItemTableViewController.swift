@@ -21,7 +21,6 @@ class ItemTableViewController: UITableViewController {
 //        let output = downloadItems()
 //        semaphore.wait()
 //        self.items = output
-////        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

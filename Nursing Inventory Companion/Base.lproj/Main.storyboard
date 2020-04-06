@@ -123,7 +123,13 @@
                             <outlet property="delegate" destination="cU0-rH-Rvx" id="MMv-Vf-PbL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="K8n-05-T2U"/>
+                    <navigationItem key="navigationItem" id="K8n-05-T2U">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="LPz-6u-lxR">
+                            <connections>
+                                <segue destination="xVG-fE-tBS" kind="show" id="sup-in-RPd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FtA-Po-g5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -434,6 +440,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLf-aT-6VB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1164" y="-463"/>
+        </scene>
+        <!--Add New Item View Controller-->
+        <scene sceneID="6VS-nF-KHY">
+            <objects>
+                <viewController id="xVG-fE-tBS" customClass="AddNewItemViewController" customModule="Nursing_Inventory_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zns-nv-GXK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a new item here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1I-NT-bJ6">
+                                <rect key="frame" x="99" y="323" width="177" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="lux-b3-jnM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QDr-na-BtK">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="ufL-dr-mdK">
+                            <connections>
+                                <action selector="saveNewItem:" destination="xVG-fE-tBS" id="BeE-ja-IAM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSz-Vw-7Xg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2292" y="-464"/>
         </scene>
         <!--Classes-->
         <scene sceneID="bFE-Ma-qCT">
