@@ -11,24 +11,17 @@ import UIKit
 class ItemTableViewController: UITableViewController {
     private var items = [ItemModel]()
     var semaphore = DispatchSemaphore(value: 0)
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        // Uncomment the following line to preserve selection between presentations
-//        // self.clearsSelectionOnViewWillAppear = false
-//
-//        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        let output = downloadItems()
-//        semaphore.wait()
-//        self.items = output
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidLoad()
-        let output = downloadItems()
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let output = downloadItems().sorted()
         semaphore.wait()
         self.items = output
-//        tableView.reloadData()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: UITableView.RowAnimation.automatic)
     }
 
     // MARK: - Table view data source
@@ -63,16 +56,45 @@ class ItemTableViewController: UITableViewController {
     */
 
     /*
+     I tried to make swipe-to-delete and destroyed the database
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            //create the request and send it through to the updateName service
+            let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/deleteItem.php")! as URL)
+            request.httpMethod = "POST"
+            let semaphore = DispatchSemaphore(value: 0)
+
+            //This string posts the ID to the php service.
+            let postString = "id=\(indexPath.row)"
+            
+            request.httpBody = postString.data(using: String.Encoding.utf8)
+
+            //Connection
+            let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                data, response, error in
+
+                if error != nil {
+                    print("error=\(error!)")
+                    return
+                }
+
+                //debugging
+                print("response = \(response!)")
+
+                //Idk why this outputs blank, it didn't three days ago. Function works anyway.
+                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print("responseString = \(responseString!)")
+                semaphore.signal()
+            }
+            task.resume()
+            semaphore.wait()
+            
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+ */
 
     /*
     // Override to support rearranging the table view.
@@ -101,13 +123,13 @@ class ItemTableViewController: UITableViewController {
             if let cell = sender as? ItemTableViewCell {
                 //rewrite this into selecting the ItemModel from the array
                 destination.title = cell.NameLabel.text ?? "None found"
-                var i = 0
-                for item in items {
-                    if (item.id! == cell.id!) {
-                        i = item.id! - 1
-                        break
-                    }
-                }
+//                var i = 0
+//                for item in items {
+//                    if (item.id! == cell.id!) {
+//                        i = item.id! - 1
+//                        break
+//                    }
+//                }
                 
                 //passes id into ItemDetailViewController
                 destination.itemID = cell.id!
@@ -121,8 +143,7 @@ class ItemTableViewController: UITableViewController {
 //What we're actually storing the JSON data in for now.
     var data = Data()
     
-    //ItemModel array to access in the ItemTableViewController
-    var downloadedItems = [ItemModel]()
+    
     
     //Right now, service.php just requests a SELECT statement. That'll be changed to a few options.
     //This URL will be replaced by the formal database once we have it running.
@@ -130,7 +151,9 @@ class ItemTableViewController: UITableViewController {
     
     //This should download the results of the hardcoded SELECT statement and store the variables with parseJSON().
     func downloadItems() -> [ItemModel] {
-        
+            
+        //ItemModel array to access in the ItemTableViewController
+        var downloadedItems = [ItemModel]()
         let url: URL = URL(string: urlPath)!
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         print("Using URL \(url)")
@@ -163,7 +186,7 @@ class ItemTableViewController: UITableViewController {
                             let shelfLocation = Character(dictionary["shelfLocation"] as! String)
                             let minSupplies = Int(dictionary["minSupplies"] as! String)
                             let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!)
-                            self.downloadedItems.append(item)
+                            downloadedItems.append(item)
                                 
                         } else {
                             

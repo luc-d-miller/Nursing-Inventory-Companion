@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemModel: NSObject {
+class ItemModel: NSObject, Comparable {
     var id: Int?
     var name: String?
     var quantity: Int?
@@ -31,5 +31,13 @@ class ItemModel: NSObject {
     
     override var description: String {
         return "ID: \(id!) Name: \(name!) Quantity: \(quantity!)"
+    }
+    
+    static func ==(lhs: ItemModel, rhs: ItemModel) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
+    static func <(lhs: ItemModel, rhs: ItemModel) -> Bool {
+        return lhs.name! < rhs.name!
     }
 }

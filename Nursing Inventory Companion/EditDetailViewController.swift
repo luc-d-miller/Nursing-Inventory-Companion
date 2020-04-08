@@ -84,6 +84,54 @@ class EditDetailViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
+    
+    @IBAction func deleteFromDatabase(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete Item", message: "Are you sure you want to permanently delete \(self.nameLabel.text!)?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            let id = self.itemID
+                    
+            //create the request and send it through to the updateName service
+            let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/deleteItem.php")! as URL)
+            request.httpMethod = "POST"
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            //This string posts each variable separately, then the php service gets them.
+            let postString = "itemID=\(id)"
+            
+            request.httpBody = postString.data(using: String.Encoding.utf8)
+
+            //Connection
+            let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                data, response, error in
+
+                if error != nil {
+                    print("error=\(error!)")
+                    return
+                }
+
+                //debugging
+    //            print("response = \(response!)")
+
+                //Idk why this outputs blank, it didn't three days ago. Function works anyway.
+                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print("responseString = \(responseString!)")
+                semaphore.signal()
+            }
+            task.resume()
+            semaphore.wait()
+            
+            //Pop back to ItemTableViewController
+            _ = self.navigationController?.popViewController(animated: true)
+            _ = self.navigationController?.popViewController(animated: true)
+//            let viewControllers: [UIViewController] = self.navigationController?.viewControllers as! [UIViewController]
+//            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+        
+        
+    }
+    
     /*
     // MARK: - Navigation
 

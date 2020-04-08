@@ -70,7 +70,6 @@ class ItemDetailViewController: UIViewController {
             
            //get the JSON from the service
            let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-            print(json!)
             if let dictionary = json as? [String: Any] {
                 self.nameString = dictionary["itemName"] as! String
                 self.quantityString = dictionary["quantity"] as! String
@@ -96,7 +95,7 @@ class ItemDetailViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
