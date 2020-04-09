@@ -215,12 +215,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="quantityField" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOE-rv-r4F">
-                                <rect key="frame" x="122" y="350" width="131" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzz-4I-Nb0">
+                                <rect key="frame" x="16" y="218" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lblBarcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6A-M0-ET3">
+                                <rect key="frame" x="277" y="218" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -233,7 +239,9 @@
                             <constraint firstItem="w6C-Ep-zbc" firstAttribute="top" secondItem="KaJ-CI-AlV" secondAttribute="bottom" constant="8" id="Mek-Ih-Ifo"/>
                             <constraint firstItem="spb-wg-0HI" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="NPV-uX-sW0"/>
                             <constraint firstItem="fmN-0k-gPv" firstAttribute="top" secondItem="XXr-Ik-T1q" secondAttribute="top" id="Pjq-GJ-nJJ"/>
+                            <constraint firstItem="xzz-4I-Nb0" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="SO7-f4-VNE"/>
                             <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="WRd-1O-GQ9" secondAttribute="trailing" constant="16" id="SpV-5V-fB2"/>
+                            <constraint firstItem="xzz-4I-Nb0" firstAttribute="top" secondItem="spb-wg-0HI" secondAttribute="bottom" constant="8" id="Tpt-ZA-aM8"/>
                             <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="z5f-yq-as9" secondAttribute="trailing" constant="16" id="UyN-Un-Tp7"/>
                             <constraint firstItem="X8n-m4-dlv" firstAttribute="top" secondItem="9aa-tL-W2A" secondAttribute="bottom" constant="8" id="XvE-xa-DVI"/>
                             <constraint firstItem="xbf-7n-qfR" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="ZYN-Br-GS5"/>
@@ -243,11 +251,13 @@
                             <constraint firstItem="zAB-2u-t9o" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="eVB-64-cE7"/>
                             <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="9aa-tL-W2A" secondAttribute="trailing" constant="16" id="iz2-4P-u6B"/>
                             <constraint firstItem="w6C-Ep-zbc" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="lUX-9C-Vv5"/>
+                            <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="E6A-M0-ET3" secondAttribute="trailing" constant="16" id="luH-Fc-EGK"/>
                             <constraint firstItem="zAB-2u-t9o" firstAttribute="top" secondItem="XXr-Ik-T1q" secondAttribute="top" id="pBM-MN-ZS9"/>
                             <constraint firstItem="rbu-Cx-33j" firstAttribute="top" secondItem="z5f-yq-as9" secondAttribute="bottom" constant="8" id="pk0-3Y-kui"/>
                             <constraint firstItem="OqW-NM-y64" firstAttribute="leading" secondItem="XXr-Ik-T1q" secondAttribute="leading" constant="16" id="s4D-BI-6q8"/>
                             <constraint firstItem="XXr-Ik-T1q" firstAttribute="trailing" secondItem="X8n-m4-dlv" secondAttribute="trailing" constant="16" id="sje-fI-K7m"/>
                             <constraint firstItem="xbf-7n-qfR" firstAttribute="top" secondItem="OqW-NM-y64" secondAttribute="bottom" constant="8" id="tIn-fi-f51"/>
+                            <constraint firstItem="E6A-M0-ET3" firstAttribute="top" secondItem="WRd-1O-GQ9" secondAttribute="bottom" constant="8" id="uoq-ov-ZDh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XXr-Ik-T1q"/>
                     </view>
@@ -259,11 +269,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barcodeLabel" destination="E6A-M0-ET3" id="fUu-Lt-S1L"/>
                         <outlet property="boxLabel" destination="9aa-tL-W2A" id="IQI-Yi-xtS"/>
                         <outlet property="companyLabel" destination="z5f-yq-as9" id="bGe-78-7jc"/>
                         <outlet property="minLabel" destination="WRd-1O-GQ9" id="Yxr-1D-gmh"/>
                         <outlet property="priceLabel" destination="rbu-Cx-33j" id="eVE-lb-SoA"/>
-                        <outlet property="quantityField" destination="LOE-rv-r4F" id="fPY-X9-ej5"/>
                         <outlet property="quantityLabel" destination="fmN-0k-gPv" id="H8B-3f-6a4"/>
                         <outlet property="shelfLabel" destination="X8n-m4-dlv" id="qZZ-bq-aZy"/>
                     </connections>
@@ -351,8 +361,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmh-J1-wr2">
+                                <rect key="frame" x="16" y="366" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-GL-Oft">
+                                <rect key="frame" x="262" y="359" width="97" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJX-gZ-LUk">
-                                <rect key="frame" x="16" y="441" width="343" height="30"/>
+                                <rect key="frame" x="16" y="511" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Delete Item">
@@ -375,8 +396,11 @@
                             <constraint firstItem="yH3-eI-faP" firstAttribute="top" secondItem="CLd-KU-Kcn" secondAttribute="bottom" constant="21" id="Exo-ki-nwb"/>
                             <constraint firstItem="CLd-KU-Kcn" firstAttribute="top" secondItem="mhX-dw-d0B" secondAttribute="bottom" constant="15" id="F8a-vD-Nju"/>
                             <constraint firstItem="Pvu-gn-RqV" firstAttribute="top" secondItem="8CF-qH-HwM" secondAttribute="bottom" constant="20" id="Hp8-or-cal"/>
+                            <constraint firstItem="dCi-A4-3zL" firstAttribute="trailing" secondItem="hwO-GL-Oft" secondAttribute="trailing" constant="16" id="Hqh-jT-mY2"/>
+                            <constraint firstItem="fmh-J1-wr2" firstAttribute="top" secondItem="Pvu-gn-RqV" secondAttribute="bottom" constant="22" id="IOp-fa-l8h"/>
                             <constraint firstItem="dCi-A4-3zL" firstAttribute="trailing" secondItem="qSZ-VG-KzX" secondAttribute="trailing" constant="16" id="JOM-vW-xHx"/>
                             <constraint firstItem="8CF-qH-HwM" firstAttribute="leading" secondItem="dCi-A4-3zL" secondAttribute="leading" constant="16" id="LeI-7B-1Ym"/>
+                            <constraint firstItem="hwO-GL-Oft" firstAttribute="top" secondItem="qSZ-VG-KzX" secondAttribute="bottom" constant="8" id="Ljb-wo-2h4"/>
                             <constraint firstItem="qSZ-VG-KzX" firstAttribute="top" secondItem="SZx-et-Mhe" secondAttribute="bottom" constant="8" id="OWI-FU-f7S"/>
                             <constraint firstItem="SZx-et-Mhe" firstAttribute="top" secondItem="uQP-EO-Zlq" secondAttribute="bottom" constant="8" id="OqS-YM-EDL"/>
                             <constraint firstItem="bcU-oC-Czc" firstAttribute="leading" secondItem="dCi-A4-3zL" secondAttribute="leading" constant="16" id="Uu4-ub-r0A"/>
@@ -385,6 +409,7 @@
                             <constraint firstItem="Pvu-gn-RqV" firstAttribute="leading" secondItem="dCi-A4-3zL" secondAttribute="leading" constant="16" id="YIA-nz-xdB"/>
                             <constraint firstItem="dCi-A4-3zL" firstAttribute="trailing" secondItem="8Ro-vr-PJ1" secondAttribute="trailing" constant="16" id="Yb1-lP-c5q"/>
                             <constraint firstItem="vwV-ta-r0X" firstAttribute="leading" secondItem="dCi-A4-3zL" secondAttribute="leading" constant="16" id="ZCX-GT-iv7"/>
+                            <constraint firstItem="fmh-J1-wr2" firstAttribute="leading" secondItem="dCi-A4-3zL" secondAttribute="leading" constant="16" id="a8A-6b-RVs"/>
                             <constraint firstItem="dCi-A4-3zL" firstAttribute="trailing" secondItem="p6a-Pf-YK2" secondAttribute="trailing" constant="16" id="cUi-Qp-rGF"/>
                             <constraint firstItem="CLd-KU-Kcn" firstAttribute="leading" secondItem="dCi-A4-3zL" secondAttribute="leading" constant="16" id="czV-hH-Q3X"/>
                             <constraint firstItem="bcU-oC-Czc" firstAttribute="top" secondItem="vwV-ta-r0X" secondAttribute="bottom" constant="21" id="fjV-e0-lIL"/>
@@ -403,6 +428,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barcodeField" destination="hwO-GL-Oft" id="eMD-82-cFH"/>
                         <outlet property="boxQuantityField" destination="uQP-EO-Zlq" id="Hft-cg-yGL"/>
                         <outlet property="companyField" destination="p6a-Pf-YK2" id="CTS-53-tcJ"/>
                         <outlet property="minSupplyField" destination="qSZ-VG-KzX" id="Sv9-aW-I8a"/>
@@ -502,6 +528,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Barcode" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FE9-n1-3P2">
+                                <rect key="frame" x="139" y="581" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="lux-b3-jnM"/>
@@ -514,6 +546,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barcodeField" destination="FE9-n1-3P2" id="NqK-eG-fP1"/>
                         <outlet property="companyField" destination="Mox-4I-fM7" id="rwd-CY-Up7"/>
                         <outlet property="minSupplyField" destination="j59-NR-l4w" id="YIp-sD-cGi"/>
                         <outlet property="nameField" destination="8GX-rg-lPw" id="4Su-Np-V2A"/>

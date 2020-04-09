@@ -16,7 +16,8 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var boxLabel: UILabel!
     @IBOutlet weak var shelfLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
-    @IBOutlet weak var quantityField: UITextField!
+    @IBOutlet weak var barcodeLabel: UILabel!
+    
     var nameString = ""
     var quantityString = ""
     var companyString = ""
@@ -25,19 +26,20 @@ class ItemDetailViewController: UIViewController {
     var shelfString = ""
     var minString = ""
     var fieldString = ""
+    var barcodeString = ""
     var itemID = -1
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        quantityLabel.text = quantityString
-        companyLabel.text = companyString
-        priceLabel.text = priceString
-        boxLabel.text = boxString
-        shelfLabel.text = shelfString
-        minLabel.text = minString
-        quantityField.placeholder = quantityString
+//        quantityLabel.text = quantityString
+//        companyLabel.text = companyString
+//        priceLabel.text = priceString
+//        boxLabel.text = boxString
+//        shelfLabel.text = shelfString
+//        minLabel.text = minString
+//        barcodeLabel.text = barcodeString
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +80,7 @@ class ItemDetailViewController: UIViewController {
                 self.boxString = dictionary["boxQuantity"] as! String
                 self.shelfString = dictionary["shelfLocation"] as! String
                 self.minString = dictionary["minSupplies"] as! String
+                self.barcodeString = dictionary["barcode"] as! String
             } else {
                 print("The array messed up")
             }
@@ -92,6 +95,7 @@ class ItemDetailViewController: UIViewController {
         boxLabel.text = boxString
         shelfLabel.text = shelfString
         minLabel.text = minString
+        barcodeLabel.text = barcodeString
     }
     
     // MARK: - Navigation
@@ -108,6 +112,7 @@ class ItemDetailViewController: UIViewController {
             destination.boxQuantityText = self.boxString
             destination.shelfLocationText = self.shelfString
             destination.minSupplyText = self.minString
+            destination.barcodeText = self.barcodeString
             destination.itemID = self.itemID
         }
     }

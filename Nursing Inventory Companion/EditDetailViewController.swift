@@ -17,6 +17,7 @@ class EditDetailViewController: UIViewController {
     @IBOutlet weak var boxQuantityField: UITextField!
     @IBOutlet weak var shelfLocationField: UITextField!
     @IBOutlet weak var minSupplyField: UITextField!
+    @IBOutlet weak var barcodeField: UITextField!
     
     var nameText = "" //Default name text is from the database
     var quantityText = "" //Default quantity amount is from database
@@ -25,6 +26,7 @@ class EditDetailViewController: UIViewController {
     var boxQuantityText = "" //Default box quantity is from database
     var shelfLocationText = "" //Default shelf location is from database
     var minSupplyText = "" //Default minimum supply is from database
+    var barcodeText = "" //Barcode is from database and set uneditable
     var itemID = -1 //relevant for save button
     
     override func viewDidLoad() {
@@ -36,6 +38,7 @@ class EditDetailViewController: UIViewController {
         boxQuantityField.text = boxQuantityText
         shelfLocationField.text = shelfLocationText
         minSupplyField.text = minSupplyText
+        barcodeField.placeholder = barcodeText
         // Do any additional setup after loading the view.
     }
     

@@ -17,8 +17,9 @@ class ItemModel: NSObject, Comparable {
     var boxQuantity: Int?
     var shelfLocation: Character?
     var minSupplies: Int?
+    var barcode: String?
     
-    init(Id: Int, Name: String, Quantity: Int, Company: String, Price: Int, BoxQuantity: Int, ShelfLocation: Character, MinSupplies: Int) {
+    init(Id: Int, Name: String, Quantity: Int, Company: String, Price: Int, BoxQuantity: Int, ShelfLocation: Character, MinSupplies: Int, Barcode: String) {
         id = Id
         name = Name
         quantity = Quantity
@@ -27,6 +28,7 @@ class ItemModel: NSObject, Comparable {
         boxQuantity = BoxQuantity
         shelfLocation = ShelfLocation
         minSupplies = MinSupplies
+        barcode = Barcode
     }
     
     override var description: String {

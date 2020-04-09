@@ -111,13 +111,62 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         if supportedMetadataTypes.contains(metadataObj.type) {
             if let outputString = metadataObj.stringValue {
                 DispatchQueue.main.async {
+                    //Check if the output is in the database
+//                    if (self.checkDatabase(outputString) == true) {
+//                        print("Checking the database worked!")
+//                    }
+                    
+                    
+                    
                     print(outputString)
-                    self.lblOutput.text = outputString
+//                    self.lblOutput.text = outputString
                 }
             }
         }
         
     }
 
-}
+    //function to return if the barcode is in the database - Lucas wrote this. He wrote the entire project except this file, and then he finished this file. Jacob was "bugfixing" it for two months.
+    func checkDatabase(_ Barcode: String) -> Bool {
+        //variable to pass into the function
+        let barcode = Barcode
+        
+        var returned = false
+        
+        //create the request and send it through to the getItem service
+        let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/checkBarcode.php")! as URL)
+        request.httpMethod = "POST"
 
+        //Semaphore to make sure I get the JSON before moving on
+        let semaphore = DispatchSemaphore(value: 0)
+
+        //This string posts each variable separately, then the php service gets them.
+        let postString = "barcode=\(barcode)"
+
+        //Sets up the request
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+
+        //Connection
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+           (data, response, error) in
+
+           if error != nil {
+               print("error=\(error!)")
+               return
+           }
+            
+           //get the JSON from the service
+           let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+            if let dictionary = json as? [String: Any] {
+                returned = true
+            } else {
+                print("The array messed up")
+                returned = false
+            }
+           semaphore.signal()
+        }
+        task.resume()
+        semaphore.wait()
+        return returned
+    }
+}

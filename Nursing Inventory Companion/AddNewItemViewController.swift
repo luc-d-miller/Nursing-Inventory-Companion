@@ -16,13 +16,6 @@ class AddNewItemViewController: UIViewController {
 //    var numberPerBox = ""
 //    var shelfLocation = ""
 //    var minSupply = ""
-    var nameChanged = false
-    var quantityChanged = false
-    var companyChanged = false
-    var priceChanged = false
-    var numberPerBoxChanged = false
-    var shelfLocationChanged = false
-    var minSupplyChanged = false
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
     @IBOutlet weak var companyField: UITextField!
@@ -30,6 +23,7 @@ class AddNewItemViewController: UIViewController {
     @IBOutlet weak var numberPerBoxField: UITextField!
     @IBOutlet weak var shelfLocationField: UITextField!
     @IBOutlet weak var minSupplyField: UITextField!
+    @IBOutlet weak var barcodeField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +46,7 @@ class AddNewItemViewController: UIViewController {
             let boxQuantity = numberPerBoxField.text!
             let shelfLocation = shelfLocationField.text!
             let minSupply = minSupplyField.text!
+            let barcode = barcodeField.placeholder!
             
             //create the request and send it through to the updateName service
             let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/addItem.php")! as URL)
@@ -59,7 +54,7 @@ class AddNewItemViewController: UIViewController {
             let semaphore = DispatchSemaphore(value: 0)
             
             //This string posts each variable separately, then the php service gets them.
-            let postString = "itemName=\(itemName)&quantity=\(itemQuantity!)&company=\(company)&price=\(price!)&boxQuantity=\(boxQuantity)&shelfLocation=\(shelfLocation)&minSupplies\(minSupply)"
+            let postString = "itemName=\(itemName)&quantity=\(itemQuantity!)&company=\(company)&price=\(price!)&boxQuantity=\(boxQuantity)&shelfLocation=\(shelfLocation)&minSupplies\(minSupply)&barcode=\(barcode)"
             
             request.httpBody = postString.data(using: String.Encoding.utf8)
 

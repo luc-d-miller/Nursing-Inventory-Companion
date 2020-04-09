@@ -185,7 +185,8 @@ class ItemTableViewController: UITableViewController {
                             let boxQuantity = Int(dictionary["boxQuantity"] as! String)
                             let shelfLocation = Character(dictionary["shelfLocation"] as! String)
                             let minSupplies = Int(dictionary["minSupplies"] as! String)
-                            let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!)
+                            let barcode = dictionary["barcode"] as! String
+                            let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!, Barcode: barcode)
                             downloadedItems.append(item)
                                 
                         } else {
@@ -206,6 +207,4 @@ class ItemTableViewController: UITableViewController {
         semaphore.signal()
         return downloadedItems
     }
-
-    
 }
