@@ -79,7 +79,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: false)
+//        navigationController?.setNavigationBarHidden(true, animated: false)
         self.captureSession?.startRunning()
     }
     
@@ -111,13 +111,11 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         if supportedMetadataTypes.contains(metadataObj.type) {
             if let outputString = metadataObj.stringValue {
                 DispatchQueue.main.async {
-                    //Check if the output is in the database
-//                    if (self.checkDatabase(outputString) == true) {
-//                        print("Checking the database worked!")
-//                    }
-                    
-                    
-                    
+//                    Check if the output is in the database
+                    if (self.checkDatabase(outputString) == true) {
+                        print("Checking the database worked!")
+                    }
+
                     print(outputString)
 //                    self.lblOutput.text = outputString
                 }
@@ -136,6 +134,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         //create the request and send it through to the getItem service
         let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/checkBarcode.php")! as URL)
         request.httpMethod = "POST"
+        print("Using url: \(request)")
 
         //Semaphore to make sure I get the JSON before moving on
         let semaphore = DispatchSemaphore(value: 0)
