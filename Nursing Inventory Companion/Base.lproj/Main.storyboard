@@ -495,12 +495,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fLl-0j-guE">
-                                <rect key="frame" x="67" y="519" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLl-0j-guE">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qw7-aB-MkM">
-                                        <rect key="frame" x="99" y="54" width="42" height="21"/>
+                                        <rect key="frame" x="166" y="476" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -511,6 +510,12 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fLl-0j-guE" firstAttribute="bottom" secondItem="OmN-ua-3rU" secondAttribute="bottom" id="lT4-UB-XZS"/>
+                            <constraint firstItem="fLl-0j-guE" firstAttribute="trailing" secondItem="OmN-ua-3rU" secondAttribute="trailing" id="oMl-SN-vFf"/>
+                            <constraint firstItem="fLl-0j-guE" firstAttribute="top" secondItem="OmN-ua-3rU" secondAttribute="top" id="q5I-6p-iJ5"/>
+                            <constraint firstItem="fLl-0j-guE" firstAttribute="leading" secondItem="OmN-ua-3rU" secondAttribute="leading" id="wk0-Zf-g0v"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OmN-ua-3rU"/>
                     </view>
                     <navigationItem key="navigationItem" id="DRv-OH-hFy"/>
@@ -521,7 +526,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLf-aT-6VB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="-463"/>
+            <point key="canvasLocation" x="1164" y="-463.71814092953525"/>
         </scene>
         <!--Add New Item View Controller-->
         <scene sceneID="6VS-nF-KHY">

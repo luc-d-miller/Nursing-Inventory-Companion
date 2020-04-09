@@ -13,6 +13,7 @@ $price = (int)$_POST['price'];
 $boxQuantity = (int)$_POST['boxQuantity'];
 $shelfLocation = '"' . $_POST['shelfLocation'] . '"';
 $minSupplies = (int)$_POST['minSupplies'];
+$barcode = '"' . $_POST['barcode'] . '"';
 
 
 // Create connection
@@ -24,7 +25,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$sql = "CALL insertNewItem($itemName, $quantity, $company, $price, $boxQuantity, $shelfLocation, $minSupplies);";
+$sql = "CALL insertNewItem($itemName, $quantity, $company, $price, $boxQuantity, $shelfLocation, $minSupplies, $barcode);";
 if (!mysqli_query($con, $sql)) {
   echo "Failed to insert the item: " . mysqli_error($con);
 }

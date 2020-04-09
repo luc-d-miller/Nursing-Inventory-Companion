@@ -4,8 +4,8 @@ use Inventory;
 -- DO THESE THINGS IF THE TABLE GETS A NEW VARIABLE
     -- Drop and re-add insertNewItem with changes
     -- Drop and re-add SelectAllItems with changes
+    -- Drop and re-add updateItem with changes
     -- I find it easier to drop/re-add the table and modify the insert calls than make an update call for each item
-    -- Create procedure to modify new variable
     -- Update addNewItem.php
 		-- Give a variable
     -- Create php to modify single value
@@ -30,16 +30,17 @@ price int not null,
 boxQuantity int not null,
 shelfLocation varchar(1) not null,
 minSupplies int not null,
+barcode varchar(256) not null,
 primary key (itemID)
 );
 
 -- Sample data - REPLACE THIS WITH THE DATA VANCE SENT 
-insert into items (itemName, quantity, company, price, boxQuantity, shelfLocation, minSupplies) 
-	values ("Test Boy", 111, "Test Boy Company", 100000, 10, 'A', 10);
-insert into items (itemName, quantity, company, price, boxQuantity, shelfLocation, minSupplies) 
-	values ("Test Girl", 222, "Test Girl Company", 200, 15, 'B', 15);
-insert into items (itemName, quantity, company, price, boxQuantity, shelfLocation, minSupplies) 
-	values ("Test Grumpy Old Man", 69, "Nice Company", 420, 20, 'Z', 42069);
+insert into items (itemName, quantity, company, price, boxQuantity, shelfLocation, minSupplies, barcode) 
+	values ("Test Boy", 111, "Test Boy Company", 100000, 10, 'A', 10, 11111111);
+insert into items (itemName, quantity, company, price, boxQuantity, shelfLocation, minSupplies, barcode) 
+	values ("Test Girl", 222, "Test Girl Company", 200, 15, 'B', 15, 22222222);
+insert into items (itemName, quantity, company, price, boxQuantity, shelfLocation, minSupplies, barcode) 
+	values ("Test Grumpy Old Man", 69, "Nice Company", 420, 20, 'Z', 42069, 33333333);
 
 -- Create the procedures to be used by the php service/XCode app
 DELIMITER $$ 
@@ -47,7 +48,7 @@ DELIMITER $$
 -- Select All Items
 CREATE PROCEDURE SelectAllItems() 
 BEGIN
-	select * from items;
+	select * from items order by itemName;
 END $$
 
 -- Select a single item for editing - I can't figure out how to make the procedures use it though so fuck me
@@ -64,20 +65,12 @@ CREATE PROCEDURE insertNewItem(
     IN price1 int, 
     IN boxQuantity1 int, 
     IN shelfLocation1 char, 
-    IN minSupplies1 int
+    IN minSupplies1 int,
+    IN barcode1 varchar(256)
 )
 BEGIN 
-	INSERT INTO items (itemName, quantity, company, price, boxQuantity, shelfLocation, minSupplies) 
-		VALUES (itemName1, quantity1, company1, price1, boxQuantity1, shelfLocation1, minSupplies1);
-END $$
-
--- Change itemName
-CREATE PROCEDURE updateName(
-	IN newName varchar(256),
-    IN id int
-)
-BEGIN
-	UPDATE items SET itemName = newName WHERE itemID = id;
+	INSERT INTO items (itemName, quantity, company, price, boxQuantity, shelfLocation, minSupplies, barcode) 
+		VALUES (itemName1, quantity1, company1, price1, boxQuantity1, shelfLocation1, minSupplies1, barcode1);
 END $$
 
 -- Change quantity
@@ -89,56 +82,45 @@ BEGIN
 	UPDATE items SET quantity = newQuantity WHERE itemID = id;
 END $$
 
--- Change company
-CREATE PROCEDURE updateCompany(
-	IN newCompany varchar(256),
-    IN id int
+CREATE PROCEDURE updateItem(
+	IN newName varchar(256),
+    IN id int,
+    IN newQuantity int,
+    IN newCompany varchar(256),
+    IN newPrice int,
+    IN newBoxQuantity int,
+    IN newShelfLocation varchar(1),
+    IN newMinimum int,
+    IN newBarcode varchar(256)
 )
-BEGIN
-	UPDATE items SET company = newCompany WHERE itemID = id;
+BEGIN 
+	UPDATE items SET itemName = newName, quantity = newQuantity, company = newCompany, price = newPrice, 
+		boxQuantity = newBoxQuantity, shelfLocation = newShelfLocation, minSupplies = newMinimum, barcode = 
+		newBarcode WHERE itemID = id;
 END $$
 
--- Change price
-CREATE PROCEDURE updatePrice(
-	IN newPrice int,
-    IN id int
+CREATE PROCEDURE deleteItem(
+	IN goneID int
 )
-BEGIN
-	UPDATE items SET price = newPrice WHERE itemID = id;
+BEGIN 
+	DELETE FROM items WHERE itemID = goneID;
 END $$
 
--- Change boxQuantity
-CREATE PROCEDURE updateBoxQuantity(
-	IN newBoxQ int,
-    IN id int
+CREATE PROCEDURE checkBarcodes(
+	IN barcode1 varchar(256)
 )
-BEGIN
-	UPDATE items SET boxQuantity = newBoxQ WHERE itemID = id;
+BEGIN 
+	SELECT * FROM items WHERE barcode = barcode1; 
 END $$
 
--- Change shelfLocation
-CREATE PROCEDURE updateShelf(
-	IN newShelf varchar(1),
-    IN id int
-)
-BEGIN
-	UPDATE items SET shelfLocation = newShelf WHERE itemID = id;
-END $$
-
--- Change minSupplies
-CREATE PROCEDURE updateMinSupplies(
-	IN newMin int,
-    IN id int
-)
-BEGIN
-	UPDATE items SET minSupplies = newMin WHERE itemID = id;
-END $$
 DELIMITER ;
 
 -- Test item
-CALL insertNewItem('Procedure Test', 1, 'Procedural Company', 12, 200, 'D', 100);
+-- CALL insertNewItem('Procedure Test', 1, 'Procedural Company', 12, 200, 'D', 100);
+-- CALL updateItem('newName', 1, 1010, 'newCompany', 2020, 333, 'X', 9999);
 -- call selectAllItems;
 
--- A reset for testing  
-delete from items where itemID > 3;
--- call selectAllItems;
+-- A reset for testing 
+-- delete from items where itemID > 1;
+call selectAllItems;
+-- drop table items;
