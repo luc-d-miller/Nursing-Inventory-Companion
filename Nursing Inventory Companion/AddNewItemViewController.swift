@@ -46,7 +46,12 @@ class AddNewItemViewController: UIViewController {
             let boxQuantity = numberPerBoxField.text!
             let shelfLocation = shelfLocationField.text!
             let minSupply = minSupplyField.text!
-            let barcode = barcodeField.placeholder!
+            var barcode = ""
+            if (barcodeField.text! == "") {
+                barcode = barcodeField.placeholder!
+            } else {
+                barcode = barcodeField.text!
+            }
             
             //create the request and send it through to the updateName service
             let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/addItem.php")! as URL)

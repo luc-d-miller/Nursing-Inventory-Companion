@@ -114,6 +114,15 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
 //                    Check if the output is in the database
                     if (self.checkDatabase(outputString) == true) {
                         print("Checking the database worked!")
+                        //make an alert:
+                            //action to check in/out
+                            //field to select amount
+                            //action to cancel
+                    } else {
+                        print("Item doesn't exist but the database still works!")
+                        //make an alert:
+                            //action to go to AddItemViewController
+                            //action to cancel
                     }
 
                     print(outputString)
