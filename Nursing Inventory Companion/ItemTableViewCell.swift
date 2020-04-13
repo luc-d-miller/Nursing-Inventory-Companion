@@ -11,9 +11,9 @@ import UIKit
 class ItemTableViewCell: UITableViewCell {
     
     static var REUSE_ID = "ITEM_CELL"
-    @IBOutlet weak var NameLabel: UILabel!
-    @IBOutlet weak var CountLabel: UILabel!
-    var id: Int!
+    @IBOutlet weak var NameLabel: UILabel! //left-side label
+    @IBOutlet weak var CountLabel: UILabel! //right-side label
+    var id: Int! //for sending the itemID to other ViewControllers
     
     override func awakeFromNib() {
         super.awakeFromNib()

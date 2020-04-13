@@ -9,13 +9,6 @@
 import UIKit
 
 class AddNewItemViewController: UIViewController {
-//    var itemName = ""
-//    var quantity = ""
-//    var company = ""
-//    var price = ""
-//    var numberPerBox = ""
-//    var shelfLocation = ""
-//    var minSupply = ""
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
     @IBOutlet weak var companyField: UITextField!
@@ -74,10 +67,6 @@ class AddNewItemViewController: UIViewController {
 
                 //debugging
                 print("response = \(response!)")
-
-                //Idk why this outputs blank, it didn't three days ago. Function works anyway.
-                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print("responseString = \(responseString!)")
                 semaphore.signal()
             }
             task.resume()

@@ -12,11 +12,6 @@ class ItemTableViewController: UITableViewController {
     private var items = [ItemModel]()
     var semaphore = DispatchSemaphore(value: 0)
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
-    
     override func viewDidAppear(_ animated: Bool) {
         let output = downloadItems().sorted()
         semaphore.wait()
@@ -35,7 +30,6 @@ class ItemTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return items.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.REUSE_ID, for: indexPath) as! ItemTableViewCell
@@ -56,39 +50,12 @@ class ItemTableViewController: UITableViewController {
     */
 
     /*
-     I tried to make swipe-to-delete and destroyed the database
+     //Don't use this. I tried to support swipe-to-delete and then realized I didn't hate myself. -Lucas. Of course this comment is from Lucas. Lucas wrote everything in this entire project except half of ScannerViewController. All while having just bought his first Mac and without knowing a lick of Swift when he started.
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //create the request and send it through to the updateName service
-            let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/deleteItem.php")! as URL)
-            request.httpMethod = "POST"
-            let semaphore = DispatchSemaphore(value: 0)
-
-            //This string posts the ID to the php service.
-            let postString = "id=\(indexPath.row)"
-            
-            request.httpBody = postString.data(using: String.Encoding.utf8)
-
-            //Connection
-            let task = URLSession.shared.dataTask(with: request as URLRequest) {
-                data, response, error in
-
-                if error != nil {
-                    print("error=\(error!)")
-                    return
-                }
-
-                //debugging
-                print("response = \(response!)")
-
-                //Idk why this outputs blank, it didn't three days ago. Function works anyway.
-                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print("responseString = \(responseString!)")
-                semaphore.signal()
+            // Do deleting stuff here
             }
-            task.resume()
-            semaphore.wait()
             
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -119,39 +86,23 @@ class ItemTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? ItemDetailViewController {
-            //does things
             if let cell = sender as? ItemTableViewCell {
-                //rewrite this into selecting the ItemModel from the array
+                //Send name and id into ItemDetailViewController.
                 destination.title = cell.NameLabel.text ?? "None found"
-//                var i = 0
-//                for item in items {
-//                    if (item.id! == cell.id!) {
-//                        i = item.id! - 1
-//                        break
-//                    }
-//                }
-                
-                //passes id into ItemDetailViewController
                 destination.itemID = cell.id!
             }
         }
     }
-
-
     
-    
-//What we're actually storing the JSON data in for now.
-    var data = Data()
-    
-    
-    
-    //Right now, service.php just requests a SELECT statement. That'll be changed to a few options.
-    //This URL will be replaced by the formal database once we have it running.
-    let urlPath = "http://192.168.56.101/CSCI3100/service.php"
     
     //This should download the results of the hardcoded SELECT statement and store the variables with parseJSON().
     func downloadItems() -> [ItemModel] {
-            
+        //What we're actually storing the JSON data in for now.
+//        var data = Data()
+        
+        //This URL will be replaced by the formal database once we have it running.
+        let urlPath = "http://192.168.56.101/CSCI3100/service.php"
+        
         //ItemModel array to access in the ItemTableViewController
         var downloadedItems = [ItemModel]()
         let url: URL = URL(string: urlPath)!

@@ -72,24 +72,22 @@ class EditDetailViewController: UIViewController {
                 print("error=\(error!)")
                 return
             }
-
-            //debugging
-            print("response = \(response!)")
-
-            //Idk why this outputs blank, it didn't three days ago. Function works anyway.
-            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print("responseString = \(responseString!)")
             semaphore.signal()
         }
         task.resume()
         semaphore.wait()
         
+        //Pop back to details.
         _ = navigationController?.popViewController(animated: true)
     }
     
-    
+    //Does what it says.
     @IBAction func deleteFromDatabase(_ sender: Any) {
+        
+        //Make alert.
         let alert = UIAlertController(title: "Delete Item", message: "Are you sure you want to permanently delete \(self.nameLabel.text!)?", preferredStyle: .alert)
+        
+        //Delete action.
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
             let id = self.itemID
                     
@@ -106,32 +104,23 @@ class EditDetailViewController: UIViewController {
             //Connection
             let task = URLSession.shared.dataTask(with: request as URLRequest) {
                 data, response, error in
-
                 if error != nil {
                     print("error=\(error!)")
                     return
                 }
-
-                //debugging
-    //            print("response = \(response!)")
-
-                //Idk why this outputs blank, it didn't three days ago. Function works anyway.
-                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print("responseString = \(responseString!)")
                 semaphore.signal()
             }
             task.resume()
             semaphore.wait()
             
-            //Pop back to ItemTableViewController
+            //Pop back to ItemTableViewController because details are gone.
             _ = self.navigationController?.popViewController(animated: true)
             _ = self.navigationController?.popViewController(animated: true)
-//            let viewControllers: [UIViewController] = self.navigationController?.viewControllers as! [UIViewController]
-//            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alert, animated: true)
         
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil)) //Cancel button
+        self.present(alert, animated: true) //Post alert before deleting.
         
     }
     
@@ -141,16 +130,7 @@ class EditDetailViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        if let destination = segue.destination as? ItemDetailViewController {
-            destination.nameString = self.nameLabel.text!
-            destination.itemID = self.itemID
-            destination.quantityString = self.quantityField.text!
-            destination.companyString = self.companyField.text!
-            destination.priceString = self.priceField.text!
-            destination.boxString = self.boxQuantityField.text!
-            destination.shelfString = self.shelfLocationField.text!
-            destination.minString = self.minSupplyField.text!
-        )
+     
         // Pass the selected object to the new view controller.
     }
     */

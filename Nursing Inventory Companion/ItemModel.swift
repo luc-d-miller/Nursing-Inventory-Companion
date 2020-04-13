@@ -35,6 +35,7 @@ class ItemModel: NSObject, Comparable {
         return "ID: \(id!) Name: \(name!) Quantity: \(quantity!)"
     }
     
+    //These two functions, gained from extending Comparable, allow me to alphabetize the list in ItemTableViewController.viewDidAppear().
     static func ==(lhs: ItemModel, rhs: ItemModel) -> Bool {
         return lhs.name == rhs.name
     }

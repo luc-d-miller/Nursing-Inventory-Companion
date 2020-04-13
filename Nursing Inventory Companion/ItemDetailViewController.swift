@@ -29,19 +29,7 @@ class ItemDetailViewController: UIViewController {
     var barcodeString = ""
     var itemID = -1
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        quantityLabel.text = quantityString
-//        companyLabel.text = companyString
-//        priceLabel.text = priceString
-//        boxLabel.text = boxString
-//        shelfLabel.text = shelfString
-//        minLabel.text = minString
-//        barcodeLabel.text = barcodeString
-    }
-    
+    //ViewWillAppear so it updates immediately after editing.
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         
