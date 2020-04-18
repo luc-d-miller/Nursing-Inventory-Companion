@@ -37,7 +37,7 @@ class ItemDetailViewController: UIViewController {
         let id = self.itemID
         
         //create the request and send it through to the getItem service
-        let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/getItem.php")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/getItem.php")! as URL)
         request.httpMethod = "POST"
 
         //Semaphore to make sure I get the JSON before moving on

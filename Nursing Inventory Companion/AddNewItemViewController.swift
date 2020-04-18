@@ -47,7 +47,7 @@ class AddNewItemViewController: UIViewController {
             }
             
             //create the request and send it through to the updateName service
-            let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/addItem.php")! as URL)
+            let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/addItem.php")! as URL)
             request.httpMethod = "POST"
             let semaphore = DispatchSemaphore(value: 0)
             

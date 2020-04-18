@@ -100,8 +100,8 @@ class ItemTableViewController: UITableViewController {
         //What we're actually storing the JSON data in for now.
 //        var data = Data()
         
-        //This URL will be replaced by the formal database once we have it running.
-        let urlPath = "http://192.168.56.101/CSCI3100/service.php"
+        //Database url
+        let urlPath = "http://www.nursinginventorycompanion.com/service.php"
         
         //ItemModel array to access in the ItemTableViewController
         var downloadedItems = [ItemModel]()

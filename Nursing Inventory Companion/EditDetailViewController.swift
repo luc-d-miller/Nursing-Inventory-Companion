@@ -55,7 +55,7 @@ class EditDetailViewController: UIViewController {
         let id = self.itemID
         
         //create the request and send it through to the updateName service
-        let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/updateItem.php")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/updateItem.php")! as URL)
         request.httpMethod = "POST"
         let semaphore = DispatchSemaphore(value: 0)
         
@@ -92,7 +92,7 @@ class EditDetailViewController: UIViewController {
             let id = self.itemID
                     
             //create the request and send it through to the updateName service
-            let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.56.101/CSCI3100/deleteItem.php")! as URL)
+            let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/deleteItem.php")! as URL)
             request.httpMethod = "POST"
             let semaphore = DispatchSemaphore(value: 0)
             
