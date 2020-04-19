@@ -97,61 +97,56 @@ class ItemTableViewController: UITableViewController {
     
     //This should download the results of the hardcoded SELECT statement and store the variables with parseJSON().
     func downloadItems() -> [ItemModel] {
-        //What we're actually storing the JSON data in for now.
-//        var data = Data()
+        let id = 1
         
-        //Database url
-        let urlPath = "http://www.nursinginventorycompanion.com/service.php"
+        //create the request and send it through to the getItem service
+        let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/service.php")! as URL)
+        request.httpMethod = "POST"
         
-        //ItemModel array to access in the ItemTableViewController
+        //This string posts each variable separately, then the php service gets them.
+        let postString = "id=\(id)"
+
+        //Sets up the request
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+
         var downloadedItems = [ItemModel]()
-        let url: URL = URL(string: urlPath)!
-        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        print("Using URL \(url)")
-        
         let semaphore2 = DispatchSemaphore(value: 0)
-        let task = defaultSession.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print("Failed to download data \(error!)")
-            } else {
-                //print that the data has been downloaded, parse it into json, and print it to screen
-                print("Data downloaded")
-                print(data!)
-                    
-                //get the JSON from the service
-                let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-                    
-                //get everything from the json as an array
-                if let array = json as? [Any] {
-                    
-                    //append each item in the array into the item list
-                    for object in array {
-                            
-                        if let dictionary = object as? [String: Any] {
-                            let id = Int(dictionary["itemID"] as! String)
-                            let name = dictionary["itemName"] as! String
-                            let quantity = Int(dictionary["quantity"] as! String)
-                            let company = dictionary["company"] as! String
-                            let price = Int(dictionary["price"] as! String)
-                            let boxQuantity = Int(dictionary["boxQuantity"] as! String)
-                            let shelfLocation = Character(dictionary["shelfLocation"] as! String)
-                            let minSupplies = Int(dictionary["minSupplies"] as! String)
-                            let barcode = dictionary["barcode"] as! String
-                            let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!, Barcode: barcode)
-                            downloadedItems.append(item)
-                                
-                        } else {
-                            
-                            print("Problem with dictionary")
-                            
-                        }
+        
+        //Connection
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+           (data, response, error) in
+
+           if error != nil {
+               print("error=\(error!)")
+               return
+           }
+            
+           //get the JSON from the service
+           let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+            //punch the JSON into an array of dictionaries
+            if let array = json as? [Any] {
+                //iterate through each dictionary and append to downloadedItems
+                for object in array {
+                    if let dictionary = object as? [String: Any] {
+                    let id = Int(dictionary["itemID"] as! String)
+                    let name = dictionary["itemName"] as! String
+                    let quantity = Int(dictionary["quantity"] as! String)
+                    let company = dictionary["company"] as! String
+                    let price = Int(dictionary["price"] as! String)
+                    let boxQuantity = Int(dictionary["boxQuantity"] as! String)
+                    let shelfLocation = Character(dictionary["shelfLocation"] as! String)
+                    let minSupplies = Int(dictionary["minSupplies"] as! String)
+                    let barcode = dictionary["barcode"] as! String
+                    let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!, Barcode: barcode)
+                    downloadedItems.append(item)
+                    } else {
+                        print("Problem with dictionary")
                     }
-                } else {
-                    print("The array messed up")
                 }
-                    
+            } else {
+                print("The array messed up")
             }
-            semaphore2.signal()
+           semaphore2.signal()
         }
         task.resume()
         semaphore2.wait()

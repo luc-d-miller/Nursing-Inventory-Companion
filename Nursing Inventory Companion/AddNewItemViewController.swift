@@ -17,10 +17,11 @@ class AddNewItemViewController: UIViewController {
     @IBOutlet weak var shelfLocationField: UITextField!
     @IBOutlet weak var minSupplyField: UITextField!
     @IBOutlet weak var barcodeField: UITextField!
+    var barcodeText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        barcodeField.text = barcodeText
         // Do any additional setup after loading the view.
     }
     

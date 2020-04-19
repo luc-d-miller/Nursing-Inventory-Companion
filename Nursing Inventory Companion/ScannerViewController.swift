@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCapturePhotoCaptureDelegate, AVCaptureMetadataOutputObjectsDelegate {
-    
+    var scannedItem : ItemModel?
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var lblOutput: UILabel!
     
@@ -79,7 +79,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        navigationController?.setNavigationBarHidden(true, animated: false)
         self.captureSession?.startRunning()
     }
     
@@ -110,28 +109,39 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if supportedMetadataTypes.contains(metadataObj.type) {
             if let outputString = metadataObj.stringValue {
+                captureSession?.stopRunning()
                 DispatchQueue.main.async {
 //                    Check if the output is in the database
                     if (self.checkDatabase(outputString) == true) {
                         print("Checking the database worked!")
-                        //make an alert:
-                            //action to check in/out
-                            //field to select amount
-                            //action to cancel
+                        let alert = UIAlertController(title: self.scannedItem!.name!, message: "", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Check in/out", style: .default, handler:  { action in
+                            let next = self.storyboard?.instantiateViewController(withIdentifier: "ItemDetailViewController") as! ItemDetailViewController
+                            next.itemID = self.scannedItem!.id!
+                            self.navigationController?.pushViewController(next, animated: true)
+                        }))
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     } else {
                         print("Item doesn't exist but the database still works!")
                         //make an alert:
-                            //action to go to AddItemViewController
-                            //action to cancel
+                        let alert = UIAlertController(title: "New Item", message: "Would you like to add this item to the database?", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { action in
+                            let next = self.storyboard?.instantiateViewController(withIdentifier: "AddNewItemViewController") as! AddNewItemViewController
+                            next.barcodeText = outputString
+                            self.navigationController?.pushViewController(next, animated: true)
+                        }))
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
-
-                    print(outputString)
-//                    self.lblOutput.text = outputString
                 }
             }
+            captureSession?.startRunning()
         }
         
     }
+    
+    
 
     //function to return if the barcode is in the database - Lucas wrote this. He wrote the entire project except this file, and then he finished this file. Jacob was "bugfixing" it for two months.
     func checkDatabase(_ Barcode: String) -> Bool {
@@ -166,7 +176,19 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
            //get the JSON from the service
            let json = try? JSONSerialization.jsonObject(with: data!, options: [])
             if let dictionary = json as? [String: Any] {
+                print(dictionary)
                 returned = true
+                let id = Int(dictionary["itemID"] as! String)
+                let name = dictionary["itemName"] as! String
+                let quantity = Int(dictionary["quantity"] as! String)
+                let company = dictionary["company"] as! String
+                let price = Int(dictionary["price"] as! String)
+                let boxQuantity = Int(dictionary["boxQuantity"] as! String)
+                let shelfLocation = Character(dictionary["shelfLocation"] as! String)
+                let minSupplies = Int(dictionary["minSupplies"] as! String)
+                let barcode = dictionary["barcode"] as! String
+                self.scannedItem = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!, Barcode: barcode)
+                print(self.scannedItem!)
             } else {
                 print("The array messed up")
                 returned = false

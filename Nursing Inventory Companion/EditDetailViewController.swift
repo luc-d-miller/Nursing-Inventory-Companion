@@ -16,7 +16,7 @@ class EditDetailViewController: UIViewController {
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var boxQuantityField: UITextField!
     @IBOutlet weak var shelfLocationField: UITextField!
-    @IBOutlet weak var minSupplyField: UITextField!
+//    @IBOutlet weak var minSupplyField: UITextField!
     @IBOutlet weak var barcodeField: UITextField!
     
     var nameText = "" //Default name text is from the database
@@ -25,7 +25,7 @@ class EditDetailViewController: UIViewController {
     var priceText = "" //Default price is from database
     var boxQuantityText = "" //Default box quantity is from database
     var shelfLocationText = "" //Default shelf location is from database
-    var minSupplyText = "" //Default minimum supply is from database
+//    var minSupplyText = "" //Default minimum supply is from database
     var barcodeText = "" //Barcode is from database and set uneditable
     var itemID = -1 //relevant for save button
     
@@ -37,7 +37,7 @@ class EditDetailViewController: UIViewController {
         priceField.text = priceText
         boxQuantityField.text = boxQuantityText
         shelfLocationField.text = shelfLocationText
-        minSupplyField.text = minSupplyText
+//        minSupplyField.text = minSupplyText
         barcodeField.placeholder = barcodeText
         // Do any additional setup after loading the view.
     }
@@ -50,7 +50,7 @@ class EditDetailViewController: UIViewController {
         let price = Int(priceField.text!)
         let boxQuantity = boxQuantityField.text!
         let shelfLocation = shelfLocationField.text!
-        let minSupply = minSupplyField.text!
+        let minSupply = 0 //change this
         
         let id = self.itemID
         
