@@ -134,10 +134,10 @@ class ItemTableViewController: UITableViewController {
                     let company = dictionary["company"] as! String
                     let price = Int(dictionary["price"] as! String)
                     let boxQuantity = Int(dictionary["boxQuantity"] as! String)
-                    let shelfLocation = Character(dictionary["shelfLocation"] as! String)
+                    let shelfLocation = dictionary["shelfLocation"] as! String
                     let minSupplies = Int(dictionary["minSupplies"] as! String)
                     let barcode = dictionary["barcode"] as! String
-                    let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!, Barcode: barcode)
+                        let item = ItemModel(Id: id!, Name: name, Quantity: quantity!, Company: company, Price: price!, BoxQuantity: boxQuantity!, ShelfLocation: shelfLocation, MinSupplies: minSupplies!, Barcode: barcode)
                     downloadedItems.append(item)
                     } else {
                         print("Problem with dictionary")

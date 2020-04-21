@@ -15,11 +15,11 @@ class ItemModel: NSObject, Comparable {
     var company: String?
     var price: Int?
     var boxQuantity: Int?
-    var shelfLocation: Character?
+    var shelfLocation: String?
     var minSupplies: Int?
     var barcode: String?
     
-    init(Id: Int, Name: String, Quantity: Int, Company: String, Price: Int, BoxQuantity: Int, ShelfLocation: Character, MinSupplies: Int, Barcode: String) {
+    init(Id: Int, Name: String, Quantity: Int, Company: String, Price: Int, BoxQuantity: Int, ShelfLocation: String, MinSupplies: Int, Barcode: String) {
         id = Id
         name = Name
         quantity = Quantity
