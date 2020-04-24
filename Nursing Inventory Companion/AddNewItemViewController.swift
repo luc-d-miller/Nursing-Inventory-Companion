@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddNewItemViewController: UIViewController {
+class AddNewItemViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
     @IBOutlet weak var companyField: UITextField!
@@ -23,6 +23,14 @@ class AddNewItemViewController: UIViewController {
         super.viewDidLoad()
         barcodeField.text = barcodeText
         // Do any additional setup after loading the view.
+        self.nameField.delegate = self
+        self.quantityField.delegate = self
+        self.companyField.delegate = self
+        self.priceField.delegate = self
+        self.numberPerBoxField.delegate = self
+        self.shelfLocationField.delegate = self
+        self.minSupplyField.delegate = self
+        self.barcodeField.delegate = self
     }
     
     @IBAction func saveNewItem(_ sender: Any) {
@@ -87,5 +95,4 @@ class AddNewItemViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

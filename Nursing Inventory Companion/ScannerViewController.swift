@@ -53,29 +53,23 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession?.addOutput(captureMetadataOutput)
                    
-            
-            
             // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedMetadataTypes
             
-            
-                   
             //Initialise the video preview layer and add it as a sublayer to the viewPreview view's layer
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             previewView.layer.addSublayer(videoPreviewLayer!)
-
+            
             //start video capture
             captureSession?.startRunning()
-                   
         } catch {
             //If any error occurs, simply print it out
             print(error)
             return
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,7 +84,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return device
             }
         }
-        
         return nil
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController {
+class ItemDetailViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var companyLabel: UILabel!
@@ -91,6 +91,7 @@ class ItemDetailViewController: UIViewController {
         
         checkInOut = 1
         checkInOutField.text! = String(checkInOut)
+        self.checkInOutField.delegate = self
     }
     
     // MARK: - Navigation
@@ -205,4 +206,11 @@ class ItemDetailViewController: UIViewController {
         self.viewWillAppear(true)
     }
     
+    @IBAction func editingEnd(_ sender: Any) {
+        self.checkInOutField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        [self.checkInOutField .endEditing(true)]
+    }
 }
