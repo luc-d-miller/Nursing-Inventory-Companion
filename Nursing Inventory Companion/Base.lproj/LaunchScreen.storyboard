@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDw-xe-zbg">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDw-xe-zbg">
                                 <rect key="frame" x="-26" y="192" width="427" height="283"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="rectangle_final" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-00-Cbw">
@@ -28,21 +28,18 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1714692414" green="0.3927018344" blue="0.63924378159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jDw-xe-zbg" secondAttribute="height" multiplier="427:283" id="N7D-PC-kxp"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1714692414" green="0.3927018344" blue="0.63924378159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="jDw-xe-zbg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-42" id="6SD-jS-V6S"/>
-                            <constraint firstItem="jDw-xe-zbg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Jei-V1-abm"/>
-                            <constraint firstItem="jDw-xe-zbg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bTD-pZ-TFv"/>
-                            <constraint firstItem="jDw-xe-zbg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="192" id="y5W-Zc-wQ4"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-86" y="327"/>
+            <point key="canvasLocation" x="-87.200000000000003" y="326.98650674662673"/>
         </scene>
     </scenes>
     <resources>
