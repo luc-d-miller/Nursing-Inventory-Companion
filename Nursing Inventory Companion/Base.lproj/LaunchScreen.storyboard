@@ -28,12 +28,13 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1714692414" green="0.3927018344" blue="0.63924378159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="jDw-xe-zbg" secondAttribute="height" multiplier="427:283" id="N7D-PC-kxp"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1714692414" green="0.3927018344" blue="0.63924378159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="jDw-xe-zbg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6oc-B6-f4r"/>
+                            <constraint firstItem="jDw-xe-zbg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DBC-fD-glw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
