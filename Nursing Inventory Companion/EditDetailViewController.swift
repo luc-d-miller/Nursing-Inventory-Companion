@@ -77,7 +77,7 @@ class EditDetailViewController: UIViewController {
         task.resume()
         semaphore.wait()
         
-        //Pop back to details.
+        //Pop view back to itemDetailViewController
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -96,7 +96,7 @@ class EditDetailViewController: UIViewController {
             request.httpMethod = "POST"
             let semaphore = DispatchSemaphore(value: 0)
             
-            //This string posts each variable separately, then the php service gets them.
+            //Sends the itemID to be deleted
             let postString = "itemID=\(id)"
             
             request.httpBody = postString.data(using: String.Encoding.utf8)
@@ -113,7 +113,7 @@ class EditDetailViewController: UIViewController {
             task.resume()
             semaphore.wait()
             
-            //Pop back to ItemTableViewController because details are gone.
+            //Pop all the way back to ItemTableViewController because details are gone.
             _ = self.navigationController?.popViewController(animated: true)
             _ = self.navigationController?.popViewController(animated: true)
         

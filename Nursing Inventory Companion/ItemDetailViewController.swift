@@ -15,7 +15,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var boxLabel: UILabel!
     @IBOutlet weak var shelfLabel: UILabel!
-//    @IBOutlet weak var minLabel: UILabel!
+//    @IBOutlet weak var minLabel: UILabel! //vance didn't want minimums listed any more, kept for posterity
     @IBOutlet weak var barcodeLabel: UILabel!
     @IBOutlet weak var checkInOutField: UITextField!
     
@@ -96,7 +96,6 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -113,6 +112,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Button functions
     @IBAction func addOne(_ sender: Any) {
         checkInOut += 1
         checkInOutField.text = String(checkInOut)
@@ -206,11 +206,13 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         self.viewWillAppear(true)
     }
     
+    //Close keyboard on edit end
     @IBAction func editingEnd(_ sender: Any) {
         self.checkInOutField.resignFirstResponder()
     }
     
+    //Close keyboard on touch anywhere
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        [self.checkInOutField .endEditing(true)]
+        [self.checkInOutField.endEditing(true)]
     }
 }

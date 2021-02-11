@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Least amount of time and effort found below -Lucas
 class AddNewItemViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var quantityField: UITextField!
@@ -22,7 +23,6 @@ class AddNewItemViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         barcodeField.text = barcodeText
-        // Do any additional setup after loading the view.
         self.nameField.delegate = self
         self.quantityField.delegate = self
         self.companyField.delegate = self

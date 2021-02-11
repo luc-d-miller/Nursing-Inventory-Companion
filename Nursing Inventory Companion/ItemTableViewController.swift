@@ -33,7 +33,7 @@ class ItemTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.REUSE_ID, for: indexPath) as! ItemTableViewCell
-        // Configure the cell...
+        // Configure the cell
         cell.id = items[indexPath.row].id!
         cell.NameLabel.text = items[indexPath.row].name!
         cell.CountLabel.text = String(items[indexPath.row].quantity!)
@@ -50,7 +50,7 @@ class ItemTableViewController: UITableViewController {
     */
 
     /*
-     //Don't use this. I tried to support swipe-to-delete and then realized I didn't hate myself. -Lucas. Of course this comment is from Lucas. Lucas wrote everything in this entire project except half of ScannerViewController. All while having just bought his first Mac and without knowing a lick of Swift when he started.
+     //Don't use this. I tried to support swipe-to-delete and then realized I didn't hate myself. -Lucas
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -81,13 +81,12 @@ class ItemTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? ItemDetailViewController {
             if let cell = sender as? ItemTableViewCell {
-                //Send name and id into ItemDetailViewController.
+                //Send name and id into ItemDetailViewController, which pulls the rest from database.
                 destination.title = cell.NameLabel.text ?? "None found"
                 destination.itemID = cell.id!
             }

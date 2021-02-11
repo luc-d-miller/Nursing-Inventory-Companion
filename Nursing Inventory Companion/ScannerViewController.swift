@@ -14,6 +14,8 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var lblOutput: UILabel!
     
+    //Here through the end of viewDidLoad() is the only code I didn't write. -Lucas
+    
     var imageOrientation: AVCaptureVideoOrientation?
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -72,6 +74,8 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    //Back to your regularly-scheduled programming. -Lucas
+    
     override func viewWillAppear(_ animated: Bool) {
         self.captureSession?.startRunning()
     }
@@ -104,7 +108,11 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             if let outputString = metadataObj.stringValue {
                 captureSession?.stopRunning()
                 DispatchQueue.main.async {
-//                    Check if the output is in the database
+
+                    //Check if the output is in the database
+                    
+                    //JFC, did I have some sort of vendetta against whitespace back then? -Lucas
+                    
                     if (self.checkDatabase(outputString) == true) {
                         print("Checking the database worked!")
                         let alert = UIAlertController(title: self.scannedItem!.name!, message: "", preferredStyle: .alert)
@@ -117,7 +125,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.present(alert, animated: true, completion: nil)
                     } else {
                         print("Item doesn't exist but the database still works!")
-                        //make an alert:
+                        //make an alert for adding a new item:
                         let alert = UIAlertController(title: "New Item", message: "Would you like to add this item to the database?", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { action in
                             let next = self.storyboard?.instantiateViewController(withIdentifier: "AddNewItemViewController") as! AddNewItemViewController
@@ -131,12 +139,11 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
             captureSession?.startRunning()
         }
-        
     }
     
     
 
-    //function to return if the barcode is in the database - Lucas wrote this. He wrote the entire project except this file, and then he finished this file. Jacob was "bugfixing" it for two months.
+    //function to return if the barcode is in the database
     func checkDatabase(_ Barcode: String) -> Bool {
         //variable to pass into the function
         let barcode = Barcode
