@@ -99,7 +99,7 @@ class ItemTableViewController: UITableViewController {
         let id = 1
         
         //create the request and send it through to the getItem service
-        let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/service.php")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "(database ip address)/service.php")! as URL)
         request.httpMethod = "POST"
         
         //This string posts each variable separately, then the php service gets them.

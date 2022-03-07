@@ -15,7 +15,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var boxLabel: UILabel!
     @IBOutlet weak var shelfLabel: UILabel!
-//    @IBOutlet weak var minLabel: UILabel! //vance didn't want minimums listed any more, kept for posterity
+//    @IBOutlet weak var minLabel: UILabel! //Vance didn't want minimums listed any more, kept for posterity
     @IBOutlet weak var barcodeLabel: UILabel!
     @IBOutlet weak var checkInOutField: UITextField!
     
@@ -40,7 +40,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         let id = self.itemID
         
         //create the request and send it through to the getItem service
-        let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/getItem.php")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "(database ip address)/getItem.php")! as URL)
         request.httpMethod = "POST"
 
         //Semaphore to make sure I get the JSON before moving on
@@ -139,7 +139,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         let id = self.itemID
         
         //create the request and send it through to the getItem service
-        let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/updateQuantity.php")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "(database ip address)/updateQuantity.php")! as URL)
         request.httpMethod = "POST"
 
         //Semaphore to make sure I get the JSON before moving on
@@ -179,7 +179,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         }
         
         //create the request and send it through to the getItem service
-        let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/updateQuantity.php")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "(database ip address)/updateQuantity.php")! as URL)
         request.httpMethod = "POST"
 
         //Semaphore to make sure I get the JSON before moving on

@@ -14,7 +14,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var lblOutput: UILabel!
     
-    //Here through the end of viewDidLoad() is the only code I didn't write. -Lucas
+    //Here through the end of viewDidLoad() is the only code in this whole project I didn't write. -Lucas
     
     var imageOrientation: AVCaptureVideoOrientation?
     var captureSession: AVCaptureSession?
@@ -151,7 +151,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         var returned = false
         
         //create the request and send it through to the getItem service
-        let request = NSMutableURLRequest(url: NSURL(string: "http://www.nursinginventorycompanion.com/checkBarcode.php")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "(database ip address)/checkBarcode.php"! as URL)
         request.httpMethod = "POST"
         print("Using url: \(request)")
 

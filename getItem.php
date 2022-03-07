@@ -1,6 +1,6 @@
 <?php
-//sign into database
-    $servername = "192.168.56.101";
+//hardcoded sign into database
+    $servername = "ip address goes here";
     $username = "nicQuery";
     $password = "Benedictine20";
     $schema = "Inventory";

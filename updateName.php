@@ -1,6 +1,6 @@
 <?php 
-//sign in to database
-$servername = "192.168.56.101";
+//hardcoded sign in to database
+$servername = "[removed before passing torch]";
 $username = "nicQuery";
 $password = "Benedictine20";
 $schema = "Inventory"; 
